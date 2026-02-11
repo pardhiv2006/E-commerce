@@ -1,0 +1,153 @@
+.orders-page {
+    background-color: var(--color-bg);
+}
+
+.orders-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    background-color: var(--color-white);
+    padding: 20px 24px;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .16);
+}
+
+.orders-page-header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.orders-page-header button {
+    background-color: var(--color-blue);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.orders-page-header button:hover {
+    background-color: #1565c0;
+}
+
+.orders-page-header a {
+    text-decoration: none;
+}
+
+.orders-page h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.order-card {
+    background: var(--color-white);
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .16);
+    padding: 16px 24px;
+    display: grid;
+    grid-template-columns: 80px 2fr 1.5fr 1fr;
+    gap: 24px;
+    align-items: center;
+    border: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+}
+
+.order-card:hover {
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, .12);
+}
+
+.order-item-image {
+    width: 80px;
+    height: 80px;
+}
+
+.order-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.order-item-details h4 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 4px;
+    color: var(--color-text-main);
+}
+
+.order-item-details p {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+}
+
+.order-item-price {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+}
+
+.order-status-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.status-dot-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.status-dot.delivered {
+    background-color: #388e3c;
+}
+
+.status-dot.ready {
+    background-color: #2874f0;
+}
+
+.status-dot.cancelled {
+    background-color: #ff6161;
+}
+
+.delivery-subtext {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.expanded-details {
+    grid-column: 1 / -1;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #f0f0f0;
+}
+
+@media (max-width: 768px) {
+    .order-card {
+        grid-template-columns: 60px 1fr;
+        gap: 16px;
+    }
+
+    .order-item-price,
+    .order-status-col {
+        grid-column: 2;
+    }
+}
