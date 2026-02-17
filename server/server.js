@@ -12,6 +12,18 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret_for_dev';
 
+// Global Error Handlers
+process.on('uncaughtException', (err) => {
+    console.error('❌ UNCAUGHT EXCEPTION:', err);
+    console.error(err.stack);
+    process.exit(1);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('❌ UNHANDLED REJECTION:', reason);
+    process.exit(1);
+});
+
 // Middleware
 app.use(cors({
     origin: process.env.FRONTEND_URL || '*',
@@ -39,6 +51,11 @@ async function initDB() {
             }
 
             console.log(`🔍 MONGODB_URI check: Length=${MONGODB_URI.length}, StartsWith=${MONGODB_URI.substring(0, 15)}...`);
+
+            if (!MONGODB_URI.startsWith('mongodb://') && !MONGODB_URI.startsWith('mongodb+srv://')) {
+                console.error('❌ FATAL: Invalid MONGODB_URI format. It must start with "mongodb://" or "mongodb+srv://"');
+                throw new Error('Invalid MONGODB_URI format');
+            }
 
             // Production: Use MongoDB Atlas
             console.log('🌐 Connecting to MongoDB Atlas (Production)...');
