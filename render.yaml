@@ -1,8 +1,25 @@
 services:
-  # Frontend Service
+  # Backend Service
   - type: web
-    name: firstmart-frontend
-    env: static
+    name: firstmart-backend
+    env: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: FRONTEND_URL
+        fromService:
+          type: site
+          name: firstmart-frontend
+          envVarKey: RENDER_EXTERNAL_URL
+
+staticSites:
+  # Frontend Service
+  - name: firstmart-frontend
     buildCommand: npm install && npm run build
     publishDir: dist
     routes:
@@ -14,23 +31,4 @@ services:
         fromService:
           type: web
           name: firstmart-backend
-          envVarKey: RENDER_EXTERNAL_URL
-        # Alternatively, prompt user to set this if automatic linking doesn't work as expected in their plan
-
-  # Backend Service
-  - type: web
-    name: firstmart-backend
-    env: node
-    root: server
-    buildCommand: npm install
-    startCommand: node server.js
-    envVars:
-      - key: MONGODB_URI
-        sync: false
-      - key: JWT_SECRET
-        sync: false
-      - key: FRONTEND_URL
-        fromService:
-          type: web
-          name: firstmart-frontend
           envVarKey: RENDER_EXTERNAL_URL
