@@ -13,19 +13,17 @@ services:
         sync: false
       - key: FRONTEND_URL
         fromService:
-          type: site
+          type: web
           name: firstmart-frontend
           envVarKey: RENDER_EXTERNAL_URL
 
-staticSites:
-  # Frontend Service
-  - name: firstmart-frontend
+  # Frontend Service (Served as a Web Service)
+  - type: web
+    name: firstmart-frontend
+    env: node
+    rootDir: .
     buildCommand: npm install && npm run build
-    publishDir: dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+    startCommand: npx serve -s dist -l $PORT
     envVars:
       - key: VITE_API_URL
         fromService:
