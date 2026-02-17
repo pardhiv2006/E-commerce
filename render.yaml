@@ -4,7 +4,7 @@ services:
     name: firstmart-backend
     env: node
     rootDir: .
-    buildCommand: cd server && npm install
+    buildCommand: chmod +x build_backend.sh && ./build_backend.sh
     startCommand: chmod +x start_backend.sh && ./start_backend.sh
     envVars:
       - key: MONGODB_URI
