@@ -27,9 +27,19 @@ let ordersCollection;
 // Initialize MongoDB
 async function initDB() {
     try {
-        const MONGODB_URI = process.env.MONGODB_URI;
+        let MONGODB_URI = process.env.MONGODB_URI;
 
         if (MONGODB_URI) {
+            // Sanitize URI (remove quotes if user pasted them, trim whitespace)
+            MONGODB_URI = MONGODB_URI.trim();
+            if ((MONGODB_URI.startsWith('"') && MONGODB_URI.endsWith('"')) ||
+                (MONGODB_URI.startsWith("'") && MONGODB_URI.endsWith("'"))) {
+                MONGODB_URI = MONGODB_URI.slice(1, -1);
+                console.log('⚠️ Removed surrounding quotes from MONGODB_URI');
+            }
+
+            console.log(`🔍 MONGODB_URI check: Length=${MONGODB_URI.length}, StartsWith=${MONGODB_URI.substring(0, 15)}...`);
+
             // Production: Use MongoDB Atlas
             console.log('🌐 Connecting to MongoDB Atlas (Production)...');
             const client = new MongoClient(MONGODB_URI);
