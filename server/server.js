@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { MongoMemoryServer } from 'mongodb-memory-server';
+// import { MongoMemoryServer } from 'mongodb-memory-server'; // Dynamically imported in dev
 import { MongoClient, ObjectId } from 'mongodb';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
@@ -48,6 +48,7 @@ async function initDB() {
 
             // Local Development: Use MongoMemoryServer
             console.log('⚠️ Using in-memory MongoDB with local persistence...');
+            const { MongoMemoryServer } = await import('mongodb-memory-server');
             const mongod = await MongoMemoryServer.create({
                 instance: {
                     dbPath: './db-data',
