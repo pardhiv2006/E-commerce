@@ -1,6 +1,6 @@
 services:
   # Frontend Service
-  - type: site
+  - type: web
     name: firstmart-frontend
     env: static
     buildCommand: npm install && npm run build
@@ -31,6 +31,6 @@ services:
         sync: false
       - key: FRONTEND_URL
         fromService:
-          type: site
+          type: web
           name: firstmart-frontend
           envVarKey: RENDER_EXTERNAL_URL
