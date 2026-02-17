@@ -26,38 +26,51 @@ let ordersCollection;
 
 // Initialize MongoDB
 async function initDB() {
-    const MONGODB_URI = process.env.MONGODB_URI;
+    try {
+        const MONGODB_URI = process.env.MONGODB_URI;
 
-    if (MONGODB_URI) {
-        // Production: Use MongoDB Atlas
-        console.log('🌐 Connecting to MongoDB Atlas (Production)...');
-        const client = new MongoClient(MONGODB_URI);
-        await client.connect();
-        db = client.db('firstmart');
-        productsCollection = db.collection('products');
-        ordersCollection = db.collection('orders');
-        console.log('✅ Connected to MongoDB Atlas');
-    } else {
-        // Local Development: Use MongoMemoryServer
-        console.log('⚠️ Using in-memory MongoDB with local persistence...');
-        const mongod = await MongoMemoryServer.create({
-            instance: {
-                dbPath: './db-data',
-                storageEngine: 'wiredTiger'
+        if (MONGODB_URI) {
+            // Production: Use MongoDB Atlas
+            console.log('🌐 Connecting to MongoDB Atlas (Production)...');
+            const client = new MongoClient(MONGODB_URI);
+            await client.connect();
+            db = client.db('firstmart');
+            productsCollection = db.collection('products');
+            ordersCollection = db.collection('orders');
+            console.log('✅ Connected to MongoDB Atlas');
+        } else {
+            // Prevent in-memory DB in production to avoid crashes
+            if (process.env.NODE_ENV === 'production') {
+                console.error('❌ FATAL: MONGODB_URI is required in production environment!');
+                console.error('Please add MONGODB_URI to your Render Environment Variables.');
+                process.exit(1);
             }
-        });
-        const uri = mongod.getUri();
 
-        const client = new MongoClient(uri);
-        await client.connect();
-        db = client.db('firstmart');
-        productsCollection = db.collection('products');
-        ordersCollection = db.collection('orders');
-        console.log('✅ Connected to MongoDB (Local)');
+            // Local Development: Use MongoMemoryServer
+            console.log('⚠️ Using in-memory MongoDB with local persistence...');
+            const mongod = await MongoMemoryServer.create({
+                instance: {
+                    dbPath: './db-data',
+                    storageEngine: 'wiredTiger'
+                }
+            });
+            const uri = mongod.getUri();
+
+            const client = new MongoClient(uri);
+            await client.connect();
+            db = client.db('firstmart');
+            productsCollection = db.collection('products');
+            ordersCollection = db.collection('orders');
+            console.log('✅ Connected to MongoDB (Local)');
+        }
+
+        // Seed initial data
+        await seedProducts();
+        return true;
+    } catch (error) {
+        console.error('❌ Failed to initialize database:', error);
+        throw error;
     }
-
-    // Seed initial data
-    await seedProducts();
 }
 
 // Seed products data
@@ -305,4 +318,7 @@ initDB().then(() => {
     app.listen(PORT, () => {
         console.log(`🚀 Server running on http://localhost:${PORT}`);
     });
+}).catch(err => {
+    console.error('❌ Server failed to start due to DB initialization error:', err);
+    process.exit(1);
 });
