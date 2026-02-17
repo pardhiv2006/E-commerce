@@ -4,8 +4,8 @@ services:
     name: firstmart-backend
     env: node
     rootDir: .
-    buildCommand: ls -R && cd server && npm install
-    startCommand: cd server && node server.js
+    buildCommand: cd server && npm install
+    startCommand: chmod +x start_backend.sh && ./start_backend.sh
     envVars:
       - key: MONGODB_URI
         sync: false
