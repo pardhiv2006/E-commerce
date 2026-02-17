@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { LogIn, Mail, Lock, AlertCircle, ShoppingBag, TrendingUp, Gift } from 'lucide-react';
 import './Login.css';
+import { api } from '../services/api';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -18,17 +19,7 @@ const Login = () => {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:5001/api/auth/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password }),
-            });
-
-            const data = await response.json();
-
-            if (!response.ok) {
-                throw new Error(data.error || 'Login failed');
-            }
+            const data = await api.login({ email, password });
 
             login(data.user, data.token);
             navigate('/');

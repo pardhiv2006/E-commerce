@@ -22,6 +22,33 @@ export const api = {
         return response.json();
     },
 
+    // Auth
+    login: async (credentials) => {
+        const response = await fetch(`${API_BASE_URL}/auth/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(credentials),
+        });
+        const data = await response.json();
+        if (!response.ok) {
+            throw new Error(data.error || 'Login failed');
+        }
+        return data;
+    },
+
+    signup: async (credentials) => {
+        const response = await fetch(`${API_BASE_URL}/auth/signup`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(credentials),
+        });
+        const data = await response.json();
+        if (!response.ok) {
+            throw new Error(data.error || 'Signup failed');
+        }
+        return data;
+    },
+
     // Orders
     createOrder: async (orderData, token) => {
         const response = await fetch(`${API_BASE_URL}/orders`, {

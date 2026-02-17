@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Mail, Lock, AlertCircle, UserPlus, Shield, Zap, CheckCircle } from 'lucide-react';
 import './Login.css';
+import { api } from '../services/api';
 
 const Signup = () => {
     const [email, setEmail] = useState('');
@@ -18,17 +19,7 @@ const Signup = () => {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:5001/api/auth/signup', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password }),
-            });
-
-            const data = await response.json();
-
-            if (!response.ok) {
-                throw new Error(data.error || 'Signup failed');
-            }
+            const data = await api.signup({ email, password });
 
             login(data.user, data.token);
             navigate('/');
