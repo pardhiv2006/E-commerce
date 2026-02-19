@@ -340,6 +340,8 @@ app.get('/api/orders/:id', async (req, res) => {
 app.get('/api/health', (req, res) => {
     res.json({ status: 'OK', message: 'First Mart API is running' });
 });
+// Define PORT (Required for Render)
+const PORT = process.env.PORT || 5000;
 
 // Start server
 initDB().then(() => {
@@ -351,8 +353,20 @@ initDB().then(() => {
     process.exit(1);
 });
 
+// Health check
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'OK', message: 'First Mart API is running' });
+});
+
+// Define PORT (Required for Render)
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+// Start server
+initDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+  });
+}).catch(err => {
+  console.error('❌ Server failed to start due to DB initialization error:', err);
+  process.exit(1);
 });
