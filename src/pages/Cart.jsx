@@ -11,6 +11,10 @@ const Cart = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
 
+    const [couponInput, setCouponInput] = useState('');
+    const [appliedCoupon, setAppliedCoupon] = useState(null);
+    const [couponError, setCouponError] = useState('');
+
     const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
     const totalOriginalPrice = cart.reduce((acc, item) => {
         const discount = (item.id * 7 % 30 + 10);
@@ -20,6 +24,35 @@ const Cart = () => {
 
     const totalDiscount = totalOriginalPrice - subtotal;
 
+    const handleApplyCoupon = () => {
+        setCouponError('');
+        if (!couponInput.trim()) return;
+
+        const coupon = coupons.find(c => c.code.toUpperCase() === couponInput.toUpperCase());
+
+        if (!coupon) {
+            setCouponError('Invalid coupon code');
+            setAppliedCoupon(null);
+            return;
+        }
+
+        if (subtotal < coupon.minAmount) {
+            setCouponError(`Minimum order amount for this coupon is $${coupon.minAmount}`);
+            setAppliedCoupon(null);
+            return;
+        }
+
+        setAppliedCoupon(coupon);
+        setCouponInput('');
+    };
+
+    const removeCoupon = () => {
+        setAppliedCoupon(null);
+    };
+
+    const couponDiscount = appliedCoupon ? subtotal * appliedCoupon.discount : 0;
+    const finalTotal = subtotal - couponDiscount;
+
     const handleCheckout = () => {
         if (!user) {
             navigate('/login');
@@ -27,7 +60,7 @@ const Cart = () => {
         }
         if (cart.length === 0) return;
         setTimeout(() => {
-            checkout(subtotal, totalDiscount);
+            checkout(finalTotal, totalDiscount + couponDiscount);
             navigate('/orders');
         }, 1000);
     };
@@ -93,6 +126,30 @@ const Cart = () => {
                 </div>
 
                 <div className="price-details-sidebar">
+                    <div className="coupon-section card">
+                        <h3>Apply Coupon</h3>
+                        <div className="coupon-input-container">
+                            <input
+                                type="text"
+                                placeholder="Enter coupon code"
+                                value={couponInput}
+                                onChange={(e) => setCouponInput(e.target.value)}
+                                className="coupon-input"
+                            />
+                            <button onClick={handleApplyCoupon} className="apply-coupon-btn">APPLY</button>
+                        </div>
+                        {couponError && <p className="coupon-error">{couponError}</p>}
+                        {appliedCoupon && (
+                            <div className="applied-coupon">
+                                <span className="coupon-tag">
+                                    {appliedCoupon.code} Applied
+                                    <button onClick={removeCoupon} className="remove-coupon">×</button>
+                                </span>
+                                <p className="coupon-description">{appliedCoupon.description}</p>
+                            </div>
+                        )}
+                    </div>
+
                     <div className="price-details-card">
                         <h3 className="price-details-title">Price Details</h3>
                         <div className="price-details-content">
@@ -104,16 +161,22 @@ const Cart = () => {
                                 <span>Discount</span>
                                 <span>−${totalDiscount.toFixed(0)}</span>
                             </div>
+                            {appliedCoupon && (
+                                <div className="price-row free">
+                                    <span>Coupon Discount ({appliedCoupon.code})</span>
+                                    <span>−${couponDiscount.toFixed(2)}</span>
+                                </div>
+                            )}
                             <div className="price-row free">
                                 <span>Delivery Charges</span>
                                 <span>FREE</span>
                             </div>
                             <div className="total-amount-row">
                                 <span>Total Amount</span>
-                                <span>${subtotal.toFixed(2)}</span>
+                                <span>${finalTotal.toFixed(2)}</span>
                             </div>
                         </div>
-                        <p className="savings-text">You will save ${totalDiscount.toFixed(0)} on this order</p>
+                        <p className="savings-text">You will save ${(totalDiscount + couponDiscount).toFixed(0)} on this order</p>
                     </div>
 
                     {orders.length > 0 && (

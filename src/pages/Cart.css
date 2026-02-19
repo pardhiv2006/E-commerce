@@ -177,6 +177,95 @@
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2) !important;
 }
 
+/* Coupon Section */
+.coupon-section {
+    background-color: var(--color-white);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .16);
+    border-radius: 2px;
+    padding: 16px 24px;
+    margin-bottom: 16px;
+}
+
+.coupon-section h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    color: #878787;
+}
+
+.coupon-input-container {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.coupon-input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.coupon-input:focus {
+    border-color: var(--color-primary);
+}
+
+.apply-coupon-btn {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.coupon-error {
+    color: #ff3e3e;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+.applied-coupon {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed #e0e0e0;
+}
+
+.coupon-tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: #e8f5e9;
+    color: #388e3c;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    gap: 8px;
+}
+
+.remove-coupon {
+    background: none;
+    border: none;
+    color: #388e3c;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.coupon-description {
+    font-size: 0.8rem;
+    color: #757575;
+    margin-top: 4px;
+}
+
 /* Price Details Sidebar */
 .price-details-card {
     background-color: var(--color-white);
