@@ -9,7 +9,7 @@ import { createUser, findUserByEmail, validatePassword } from './models.js';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret_for_dev';
 
 // Global Error Handlers
