@@ -9,7 +9,7 @@ const Navbar = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { cartCount, searchQuery, setSearchQuery } = useShop();
-    const { user, logout } = useAuth();
+    const { user } = useAuth();
 
     const handleSearch = (e) => {
         setSearchQuery(e.target.value);
@@ -18,15 +18,30 @@ const Navbar = () => {
         }
     };
 
-    const handleLogout = () => {
-        logout();
-        navigate('/');
-    };
-
     return (
         <nav className="navbar">
             <div className="container navbar-container">
                 <div className="navbar-left">
+                    {user ? (
+                        <div className="user-menu-container">
+                            <button
+                                className="user-icon-btn-group"
+                                onClick={() => navigate('/user-menu')}
+                                title="User Menu"
+                            >
+                                <div className="user-icon-circle">
+                                    <User size={18} />
+                                </div>
+                                <span className="user-name-display">{user.username || 'User'}</span>
+                            </button>
+                        </div>
+                    ) : (
+                        <Link to="/login" className="nav-item user-login">
+                            <User size={18} />
+                            <span>Login</span>
+                        </Link>
+                    )}
+
                     <Link to="/" className="logo">
                         <span className="logo-first">First</span>
                         <span className="logo-mart">Mart</span>
@@ -47,30 +62,17 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-right">
-                    {user ? (
-                        <div className="nav-item user-info">
-                            <User size={18} />
-                            <span>{user.email}</span>
-                            <button onClick={handleLogout} className="logout-btn" title="Logout">
-                                <LogOut size={16} />
-                            </button>
-                        </div>
-                    ) : (
-                        <Link to="/login" className="nav-item user-login">
-                            <User size={18} />
-                            <span>Login</span>
+                    <div className="nav-group-right">
+                        <Link to="/orders" className="nav-item orders-link">
+                            <span>My Orders</span>
                         </Link>
-                    )}
 
-                    <Link to="/orders" className="nav-item orders-link">
-                        <span>My Orders</span>
-                    </Link>
-
-                    <Link to="/cart" className="nav-item cart-link">
-                        <ShoppingCart size={20} />
-                        <span>Cart</span>
-                        {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
-                    </Link>
+                        <Link to="/cart" className="nav-item cart-link">
+                            <ShoppingCart size={20} />
+                            <span>Cart</span>
+                            {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+                        </Link>
+                    </div>
 
                     <div className="nav-item more-menu">
                         <Menu size={20} className="mobile-only" />

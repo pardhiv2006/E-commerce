@@ -1,0 +1,77 @@
+.admin-section-title {
+    margin: 0 0 4px 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.admin-section-subtitle {
+    color: #64748b;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.customer-name-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.customer-avatar-small {
+    width: 28px;
+    height: 28px;
+    background: #f1f5f9;
+    color: #64748b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.customer-username {
+    font-weight: 600;
+    color: #1a1c1e;
+}
+
+.customer-email {
+    color: #64748b;
+}
+
+.quick-signin-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.quick-signin-btn:hover {
+    background-color: var(--color-primary-dark, #2563eb);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(40, 116, 240, 0.2);
+}
+
+.checkbox-overlay {
+    background: #2874f0;
+    color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.error-text {
+    color: #ef4444;
+    text-align: center;
+}

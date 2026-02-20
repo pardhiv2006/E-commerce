@@ -1,11 +1,13 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { api } from '../services/api';
+import { useAuth } from './AuthContext';
 
 const ShopContext = createContext();
 
 export const useShop = () => useContext(ShopContext);
 
 export const ShopProvider = ({ children }) => {
+    const { user } = useAuth();
     const [cart, setCart] = useState(() => {
         const saved = localStorage.getItem('cart_v3');
         return saved ? JSON.parse(saved) : [];
@@ -130,6 +132,8 @@ export const ShopProvider = ({ children }) => {
                 subtotal: totalAmount + discount,
                 discount: discount,
                 discountApplied: discount > 0,
+                customerName: user?.username || 'Guest Customer',
+                customerEmail: user?.email,
                 date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
                 expectedDelivery: deliveryDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }),
                 status: 'Ready for Delivery'

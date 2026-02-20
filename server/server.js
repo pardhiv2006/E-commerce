@@ -35,6 +35,7 @@ app.use(express.json());
 let db;
 let productsCollection;
 let ordersCollection;
+let usersCollection;
 
 // Initialize MongoDB
 async function initDB() {
@@ -64,6 +65,7 @@ async function initDB() {
             db = client.db('firstmart');
             productsCollection = db.collection('products');
             ordersCollection = db.collection('orders');
+            usersCollection = db.collection('users');
             console.log('✅ Connected to MongoDB Atlas');
         } else {
             // Prevent in-memory DB in production to avoid crashes
@@ -76,9 +78,18 @@ async function initDB() {
             // Local Development: Use MongoMemoryServer
             console.log('⚠️ Using in-memory MongoDB with local persistence...');
             const { MongoMemoryServer } = await import('mongodb-memory-server');
+            const fs = await import('fs');
+            const path = await import('path');
+            const dbPath = path.resolve(process.cwd(), 'db-data');
+
+            if (!fs.existsSync(dbPath)) {
+                fs.mkdirSync(dbPath, { recursive: true });
+                console.log('📁 Created persistent DB directory:', dbPath);
+            }
+
             const mongod = await MongoMemoryServer.create({
                 instance: {
-                    dbPath: './db-data',
+                    dbPath: dbPath,
                     storageEngine: 'wiredTiger'
                 }
             });
@@ -89,6 +100,7 @@ async function initDB() {
             db = client.db('firstmart');
             productsCollection = db.collection('products');
             ordersCollection = db.collection('orders');
+            usersCollection = db.collection('users');
             console.log('✅ Connected to MongoDB (Local)');
         }
 
@@ -116,23 +128,23 @@ async function seedProducts() {
 // Signup
 app.post('/api/auth/signup', async (req, res) => {
     try {
-        const { email, password } = req.body;
+        const { email, password, username } = req.body;
 
         if (!email || !password) {
             return res.status(400).json({ error: 'Email and password are required' });
         }
 
-        const user = await createUser(db, { email, password });
+        const user = await createUser(db, { email, password, username });
 
         const token = jwt.sign(
-            { id: user._id, email: user.email },
+            { id: user._id, email: user.email, username: user.username },
             JWT_SECRET,
             { expiresIn: '7d' }
         );
 
         res.status(201).json({
             token,
-            user: { id: user._id, email: user.email }
+            user: { id: user._id, email: user.email, username: user.username }
         });
     } catch (error) {
         res.status(400).json({ error: error.message });
@@ -155,14 +167,14 @@ app.post('/api/auth/login', async (req, res) => {
         }
 
         const token = jwt.sign(
-            { id: user._id, email: user.email },
+            { id: user._id, email: user.email, username: user.username },
             JWT_SECRET,
             { expiresIn: '7d' }
         );
 
         res.json({
             token,
-            user: { id: user._id, email: user.email }
+            user: { id: user._id, email: user.email, username: user.username }
         });
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -228,7 +240,7 @@ app.get('/api/products/search/:query', async (req, res) => {
 // Create order
 app.post('/api/orders', async (req, res) => {
     try {
-        const { items, total, subtotal, discount, discountApplied } = req.body;
+        const { items, total, subtotal, discount, discountApplied, customerName, customerEmail } = req.body;
 
         if (!items || items.length === 0) {
             return res.status(400).json({ error: 'Order must contain items' });
@@ -249,6 +261,8 @@ app.post('/api/orders', async (req, res) => {
             subtotal: subtotal || total + discount,
             discount: discount || 0,
             discountApplied: discountApplied || false,
+            customerName: customerName || 'Guest Customer',
+            customerEmail: customerEmail || '',
             date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
             expectedDelivery: expectedDelivery.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }),
             status: 'Ready for Delivery',
@@ -331,6 +345,20 @@ app.get('/api/orders/:id', async (req, res) => {
             return res.status(404).json({ error: 'Order not found' });
         }
         res.json(order);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Customer Routes
+
+// Get all customers
+app.get('/api/customers', async (req, res) => {
+    try {
+        const users = await usersCollection.find({}, {
+            projection: { password: 0 } // Don't send passwords
+        }).toArray();
+        res.json(users);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

@@ -10,6 +10,7 @@ lerna-debug.log*
 
 # Persistence
 server/db-data/
+db-data/
 server/.env
 node_modules
 dist

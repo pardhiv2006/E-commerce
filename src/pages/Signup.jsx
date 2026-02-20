@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Mail, Lock, AlertCircle, UserPlus, Shield, Zap, CheckCircle } from 'lucide-react';
+import { Mail, Lock, AlertCircle, UserPlus, Shield, Zap, CheckCircle, User } from 'lucide-react';
 import './Login.css';
 import { api } from '../services/api';
 
 const Signup = () => {
     const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
@@ -19,7 +20,7 @@ const Signup = () => {
         setLoading(true);
 
         try {
-            const data = await api.signup({ email, password });
+            const data = await api.signup({ email, password, username });
 
             login(data.user, data.token);
             navigate('/');
@@ -49,6 +50,21 @@ const Signup = () => {
                 )}
 
                 <form onSubmit={handleSubmit} className="auth-form">
+                    <div className="form-group">
+                        <label htmlFor="username">Full Name / Username</label>
+                        <div className="input-wrapper">
+                            <input
+                                type="text"
+                                id="username"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                placeholder="Enter your username"
+                                required
+                            />
+                            <User size={20} className="input-icon" />
+                        </div>
+                    </div>
+
                     <div className="form-group">
                         <label htmlFor="email">Email Address</label>
                         <div className="input-wrapper">

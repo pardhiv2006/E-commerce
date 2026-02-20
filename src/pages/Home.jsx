@@ -3,7 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import ProductCard from '../components/ProductCard';
 import { products, categories } from '../data';
-import { Smartphone, Watch, Headphones, ShoppingBag, Coffee, Home as HomeIcon, Zap, ChevronRight } from 'lucide-react';
+import {
+    Smartphone, Watch, Headphones, ShoppingBag,
+    Coffee, Home as HomeIcon, Zap, ChevronRight,
+    LayoutDashboard, Package, ShoppingCart, Users
+} from 'lucide-react';
 import './Home.css';
 
 const Home = () => {

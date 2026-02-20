@@ -1,17 +1,27 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { LogIn, Mail, Lock, AlertCircle, ShoppingBag, TrendingUp, Gift } from 'lucide-react';
 import './Login.css';
 import { api } from '../services/api';
 
 const Login = () => {
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const prefilledEmail = queryParams.get('email');
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const { login } = useAuth();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (prefilledEmail) {
+            setEmail(prefilledEmail);
+        }
+    }, [prefilledEmail]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();

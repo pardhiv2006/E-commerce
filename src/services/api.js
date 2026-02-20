@@ -49,6 +49,15 @@ export const api = {
         return data;
     },
 
+    getAllUsers: async (token) => {
+        const response = await fetch(`${API_BASE_URL}/customers`, {
+            headers: {
+                'Authorization': token ? `Bearer ${token}` : '',
+            }
+        });
+        return response.json();
+    },
+
     // Orders
     createOrder: async (orderData, token) => {
         const response = await fetch(`${API_BASE_URL}/orders`, {
