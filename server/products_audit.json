@@ -1,0 +1,386 @@
+[
+  {
+    "id": "699d56f9e0fb9be806572a3c",
+    "name": "iPhone 15 Pro Max",
+    "category": "Mobiles",
+    "image": "/images/iphone_natural_titanium_clean_1771847498961.png"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a3d",
+    "name": "Samsung Galaxy S24 Ultra",
+    "category": "Mobiles",
+    "image": "https://images.unsplash.com/photo-1610940882244-5966236ca446?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a3e",
+    "name": "Google Pixel 8 Pro",
+    "category": "Mobiles",
+    "image": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a3f",
+    "name": "OnePlus 12",
+    "category": "Mobiles",
+    "image": "https://images.unsplash.com/photo-1644136979644-88f1767119e0?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a40",
+    "name": "Xiaomi 14 Ultra",
+    "category": "Mobiles",
+    "image": "https://images.unsplash.com/photo-1621330396173-e41b1cafd17f?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a41",
+    "name": "Google Pixel 8a",
+    "category": "Mobiles",
+    "image": "https://images.unsplash.com/photo-1610940709436-026978401344?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a42",
+    "name": "iPhone 15 Plus",
+    "category": "Mobiles",
+    "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a43",
+    "name": "Motorola Edge 50 Pro",
+    "category": "Mobiles",
+    "image": "https://images.unsplash.com/photo-1605170439002-90f450c99b2b?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a44",
+    "name": "Sony Xperia 1 VI",
+    "category": "Mobiles",
+    "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a45",
+    "name": "Asus Zenfone 11 Ultra",
+    "category": "Mobiles",
+    "image": "https://images.unsplash.com/photo-1512499617640-c74ae3a49dd5?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a46",
+    "name": "Sony WH-1000XM5 Headphones",
+    "category": "Electronics",
+    "image": "/images/sony_black_clean_1771847608171.png"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a47",
+    "name": "iPad Air 5th Gen",
+    "category": "Electronics",
+    "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a48",
+    "name": "Bose QuietComfort Ultra",
+    "category": "Electronics",
+    "image": "https://rukminim2.flixcart.com/image/612/612/k07698w0/headphone/8/3/h/sony-wh-1000xm3-original-imafhzh37jyyguhe.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a49",
+    "name": "Logitech MX Master 3S",
+    "category": "Electronics",
+    "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a4a",
+    "name": "Dell UltraSharp 32\" 4K",
+    "category": "Electronics",
+    "image": "https://rukminim2.flixcart.com/image/612/612/k07698w0/headphone/8/3/h/sony-wh-1000xm3-original-imafhzh37jyyguhe.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a4b",
+    "name": "DJI Mini 4 Pro",
+    "category": "Electronics",
+    "image": "https://rukminim2.flixcart.com/image/612/612/k07698w0/headphone/8/3/h/sony-wh-1000xm3-original-imafhzh37jyyguhe.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a4c",
+    "name": "Sony Alpha a7 IV",
+    "category": "Electronics",
+    "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a4d",
+    "name": "Keychron Q1 Max",
+    "category": "Electronics",
+    "image": "https://rukminim2.flixcart.com/image/612/612/k07698w0/headphone/8/3/h/sony-wh-1000xm3-original-imafhzh37jyyguhe.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a4e",
+    "name": "Levi's Denim Jacket",
+    "category": "Fashion",
+    "image": "https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a4f",
+    "name": "Nike Sportswear Tech Fleece",
+    "category": "Fashion",
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a50",
+    "name": "H&M Linen Shirt",
+    "category": "Fashion",
+    "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a51",
+    "name": "Adidas Essentials Tracksuit",
+    "category": "Fashion",
+    "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a52",
+    "name": "Ralph Lauren Polo Shirt",
+    "category": "Fashion",
+    "image": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a53",
+    "name": "Calvin Klein Slim Fit Jeans",
+    "category": "Fashion",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/jacket/j/m/v/l-no-den-jack-black-try-this-original-imagr7gefgznvuyz.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a54",
+    "name": "Mango Floral Midi Dress",
+    "category": "Fashion",
+    "image": "https://images.unsplash.com/photo-1572804013307-59c85b3eb6d7?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a55",
+    "name": "The North Face Rain Jacket",
+    "category": "Fashion",
+    "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a56",
+    "name": "Levi's 501 Original Jeans",
+    "category": "Fashion",
+    "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a57",
+    "name": "Nike Air Max 270",
+    "category": "Footwear",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/k/i/l/10-rng-eva-740-wht-blk-10-bruton-white-black-original-imahjn6cmwhphfaw.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a58",
+    "name": "Adidas Ultraboost Light",
+    "category": "Footwear",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/k/i/l/10-rng-eva-740-wht-blk-10-bruton-white-black-original-imahjn6cmwhphfaw.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a59",
+    "name": "Converse Chuck Taylor All Star",
+    "category": "Footwear",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/k/i/l/10-rng-eva-740-wht-blk-10-bruton-white-black-original-imahjn6cmwhphfaw.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a5a",
+    "name": "New Balance 574",
+    "category": "Footwear",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/k/i/l/10-rng-eva-740-wht-blk-10-bruton-white-black-original-imahjn6cmwhphfaw.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a5b",
+    "name": "Vans Old Skool",
+    "category": "Footwear",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/k/i/l/10-rng-eva-740-wht-blk-10-bruton-white-black-original-imahjn6cmwhphfaw.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a5c",
+    "name": "Birkenstock Arizona Sandals",
+    "category": "Footwear",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/k/i/l/10-rng-eva-740-wht-blk-10-bruton-white-black-original-imahjn6cmwhphfaw.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a5d",
+    "name": "Timberland 6-Inch Premium Boot",
+    "category": "Footwear",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/k/i/l/10-rng-eva-740-wht-blk-10-bruton-white-black-original-imahjn6cmwhphfaw.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a5e",
+    "name": "Asics Gel-Kayano 30",
+    "category": "Footwear",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/k/i/l/10-rng-eva-740-wht-blk-10-bruton-white-black-original-imahjn6cmwhphfaw.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a5f",
+    "name": "Cold Pressed Olive Oil (1L)",
+    "category": "Grocery",
+    "image": "https://images.unsplash.com/photo-1474979266404-7eaacabc87c5?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a60",
+    "name": "Arabica Whole Bean Coffee",
+    "category": "Grocery",
+    "image": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a61",
+    "name": "Organic Honey (500g)",
+    "category": "Grocery",
+    "image": "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a62",
+    "name": "Quinoa Organic (1kg)",
+    "category": "Grocery",
+    "image": "https://rukminim2.flixcart.com/image/612/612/kthjy4w0/honey/h/e/8/pure-honey-saffron-infused-natural-honey-raw-honey-honey-spoon-original-imag6tgr8fngf3hj.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a63",
+    "name": "Almond Butter (340g)",
+    "category": "Grocery",
+    "image": "https://rukminim2.flixcart.com/image/612/612/kthjy4w0/honey/h/e/8/pure-honey-saffron-infused-natural-honey-raw-honey-honey-spoon-original-imag6tgr8fngf3hj.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a64",
+    "name": "Green Tea Matcha (100g)",
+    "category": "Grocery",
+    "image": "https://rukminim2.flixcart.com/image/612/612/kthjy4w0/honey/h/e/8/pure-honey-saffron-infused-natural-honey-raw-honey-honey-spoon-original-imag6tgr8fngf3hj.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a65",
+    "name": "Himalayan Pink Salt (500g)",
+    "category": "Grocery",
+    "image": "https://rukminim2.flixcart.com/image/612/612/kthjy4w0/honey/h/e/8/pure-honey-saffron-infused-natural-honey-raw-honey-honey-spoon-original-imag6tgr8fngf3hj.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a66",
+    "name": "LG 260L Frost Free Refrigerator",
+    "category": "Appliances",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/air-conditioner-new/g/w/g/-original-imahfzh87w8yphzg.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a67",
+    "name": "Midea 1.5 Ton Split AC",
+    "category": "Appliances",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/air-conditioner-new/g/w/g/-original-imahfzh87w8yphzg.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a68",
+    "name": "Panasonic Microwave Oven",
+    "category": "Appliances",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/air-conditioner-new/g/w/g/-original-imahfzh87w8yphzg.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a69",
+    "name": "Dyson V15 Detect Vacuum",
+    "category": "Appliances",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/air-conditioner-new/g/w/g/-original-imahfzh87w8yphzg.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a6a",
+    "name": "Breville Barista Pro",
+    "category": "Appliances",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/air-conditioner-new/g/w/g/-original-imahfzh87w8yphzg.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a6b",
+    "name": "iRobot Roomba j7+",
+    "category": "Appliances",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/air-conditioner-new/g/w/g/-original-imahfzh87w8yphzg.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a6c",
+    "name": "Philips Air Purifier 2000i",
+    "category": "Appliances",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/air-conditioner-new/g/w/g/-original-imahfzh87w8yphzg.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a6d",
+    "name": "Instant Pot Pro 10-in-1",
+    "category": "Appliances",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/air-conditioner-new/g/w/g/-original-imahfzh87w8yphzg.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a6e",
+    "name": "Modern Velvet Sofa",
+    "category": "Home Decor",
+    "image": "https://rukminim2.flixcart.com/image/612/612/kk8chu80/mirror/v/y/k/3-0-120-shrutih-original-imafzkfzzyghz7zv.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a6f",
+    "name": "Abstract Canvas Wall Art",
+    "category": "Home Decor",
+    "image": "https://rukminim2.flixcart.com/image/612/612/kk8chu80/mirror/v/y/k/3-0-120-shrutih-original-imafzkfzzyghz7zv.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a70",
+    "name": "Ceramic Vase Set",
+    "category": "Home Decor",
+    "image": "https://rukminim2.flixcart.com/image/612/612/kk8chu80/mirror/v/y/k/3-0-120-shrutih-original-imafzkfzzyghz7zv.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a71",
+    "name": "Decorative Mirror (Brass)",
+    "category": "Home Decor",
+    "image": "https://rukminim2.flixcart.com/image/612/612/kk8chu80/mirror/v/y/k/3-0-120-shrutih-original-imafzkfzzyghz7zv.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a72",
+    "name": "LEGO Star Wars Millennium Falcon",
+    "category": "Beauty & Toys",
+    "image": "https://rukminim2.flixcart.com/image/612/612/k7f02vk0/educational-toy/s/h/v/millennium-falcon-75257-lego-original-imafpzx9fhygzphw.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a73",
+    "name": "Plush Teddy Bear",
+    "category": "Beauty & Toys",
+    "image": "https://rukminim2.flixcart.com/image/612/612/k7f02vk0/educational-toy/s/h/v/millennium-falcon-75257-lego-original-imafpzx9fhygzphw.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a74",
+    "name": "LEGO Technic 4x4 Off-Roader",
+    "category": "Beauty & Toys",
+    "image": "https://rukminim2.flixcart.com/image/612/612/k7f02vk0/educational-toy/s/h/v/millennium-falcon-75257-lego-original-imafpzx9fhygzphw.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a75",
+    "name": "Dyson Airwrap Styler",
+    "category": "Beauty & Toys",
+    "image": "https://rukminim2.flixcart.com/image/612/612/k7f02vk0/educational-toy/s/h/v/millennium-falcon-75257-lego-original-imafpzx9fhygzphw.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a76",
+    "name": "Nintendo Switch OLED",
+    "category": "Beauty & Toys",
+    "image": "https://rukminim2.flixcart.com/image/612/612/k7f02vk0/educational-toy/s/h/v/millennium-falcon-75257-lego-original-imafpzx9fhygzphw.jpeg?q=70"
+  },
+  {
+    "id": "699d56f9e0fb9be806572a77",
+    "name": "Revlon One-Step Hair Dryer",
+    "category": "Beauty & Toys",
+    "image": "https://rukminim2.flixcart.com/image/612/612/k7f02vk0/educational-toy/s/h/v/millennium-falcon-75257-lego-original-imafpzx9fhygzphw.jpeg?q=70"
+  },
+  {
+    "id": "699d58d2e0fb9be806572a78",
+    "name": "Valid Product",
+    "category": "Test",
+    "image": "https://rukminim2.flixcart.com/image/612/612/k07698w0/headphone/8/3/h/sony-wh-1000xm3-original-imafhzh37jyyguhe.jpeg?q=70"
+  },
+  {
+    "id": "699d5a56c71ce32f1697c2ed",
+    "name": "Initial Product for Gaming",
+    "category": "Gaming",
+    "image": "https://rukminim2.flixcart.com/image/312/312/k5lcvbk0/gaming-console/y/h/g/1-switch-v2-32-nintendo-original-imafz8ayh7jyt5h7.jpeg?q=70"
+  },
+  {
+    "id": "699d5aa9c71ce32f1697c2ee",
+    "name": "Initial Product for Instruments",
+    "category": "Instruments",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/acoustic-guitar/u/t/z/acoustic-guitar-with-accessories-combo-kit-6-string-guitar-original-imaghtky7zhgfzzg.jpeg?q=70"
+  },
+  {
+    "id": "699d5acdc71ce32f1697c2ef",
+    "name": "Guitar",
+    "category": "Instruments",
+    "image": "https://rukminim2.flixcart.com/image/612/612/xif0q/acoustic-guitar/u/t/z/acoustic-guitar-with-accessories-combo-kit-6-string-guitar-original-imaghtky7zhgfzzg.jpeg?q=70"
+  }
+]

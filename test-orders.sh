@@ -58,7 +58,9 @@ CREATE_RESPONSE=$(curl -s -X POST $API_URL/orders \
   -d "$ORDER_PAYLOAD")
 
 ORDER_ID=$(echo $CREATE_RESPONSE | grep -o '"id":"[^"]*"' | head -1 | cut -d'"' -f4)
-echo "Order created with ID: $ORDER_ID"
+# URL encode the # character for the URL
+ENCODED_ORDER_ID=$(echo $ORDER_ID | sed 's/#/%23/g')
+echo "Order created with ID: $ORDER_ID (Encoded: $ENCODED_ORDER_ID)"
 echo -e "${COLORS_GREEN}✓ Order created successfully${COLORS_RESET}"
 echo "Full response: $CREATE_RESPONSE\n"
 
@@ -71,14 +73,14 @@ echo "Response: $ORDERS_AFTER\n"
 # Test 6: Get Order by ID
 echo -e "${COLORS_YELLOW}Test 6: Get Order by ID${COLORS_RESET}"
 if [ ! -z "$ORDER_ID" ]; then
-    GET_ORDER=$(curl -s "$API_URL/orders/$ORDER_ID")
+    GET_ORDER=$(curl -s "$API_URL/orders/$ENCODED_ORDER_ID")
     echo -e "${COLORS_GREEN}✓ Retrieved order: $GET_ORDER${COLORS_RESET}\n"
 fi
 
 # Test 7: Update Order Status to Delivered
 echo -e "${COLORS_YELLOW}Test 7: Update Order Status (to Delivered)${COLORS_RESET}"
 if [ ! -z "$ORDER_ID" ]; then
-    UPDATE_RESPONSE=$(curl -s -X PATCH "$API_URL/orders/$ORDER_ID" \
+    UPDATE_RESPONSE=$(curl -s -X PATCH "$API_URL/orders/$ENCODED_ORDER_ID" \
       -H "Content-Type: application/json" \
       -d '{"status": "Delivered"}')
     echo -e "${COLORS_GREEN}✓ Order status updated${COLORS_RESET}"

@@ -52,6 +52,9 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+    /* Prevent cropping */
+    background-color: #f8f8f8;
+    /* Consistent light background for isolated products */
     transition: transform 0.3s ease, opacity 0.3s ease;
     padding: 20px;
 }
@@ -339,12 +342,16 @@
     border-radius: 2px;
     font-size: 0.9rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
 }
 
 .variant-btn:hover {
     border-color: var(--color-primary);
     color: var(--color-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .variant-btn.active {
@@ -352,19 +359,42 @@
     color: var(--color-primary);
     background: rgba(40, 116, 240, 0.05);
     font-weight: 500;
+    box-shadow: 0 2px 8px rgba(40, 116, 240, 0.15);
 }
 
 .color-swatch {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     padding: 0;
     border-radius: 50%;
-    border: 2px solid transparent;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+    border-color: var(--color-primary);
 }
 
 .color-swatch.active {
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 2px var(--color-white) inset;
+    border-width: 2px;
+    transform: scale(1.15);
+    box-shadow: 0 0 0 2px var(--color-white) inset, 0 4px 12px rgba(40, 116, 240, 0.3);
+}
+
+.color-swatch.active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 1;
 }
 
 @media (max-width: 1024px) {

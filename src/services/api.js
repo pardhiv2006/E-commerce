@@ -22,6 +22,48 @@ export const api = {
         return response.json();
     },
 
+    addProduct: async (productData) => {
+        const response = await fetch(`${API_BASE_URL}/products`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(productData),
+        });
+        return response.json();
+    },
+
+    updateProduct: async (id, productData) => {
+        const response = await fetch(`${API_BASE_URL}/products/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(productData),
+        });
+        return response.json();
+    },
+
+    deleteProduct: async (id) => {
+        const response = await fetch(`${API_BASE_URL}/products/${id}`, {
+            method: 'DELETE',
+        });
+        return response.json();
+    },
+
+    // Categories
+    deleteCategory: async (categoryName) => {
+        const response = await fetch(`${API_BASE_URL}/categories/${encodeURIComponent(categoryName)}`, {
+            method: 'DELETE',
+        });
+        return response.json();
+    },
+
+    updateCategory: async (oldName, newName) => {
+        const response = await fetch(`${API_BASE_URL}/categories/${encodeURIComponent(oldName)}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ newName }),
+        });
+        return response.json();
+    },
+
     // Auth
     login: async (credentials) => {
         const response = await fetch(`${API_BASE_URL}/auth/login`, {

@@ -18,6 +18,8 @@ export const ShopProvider = ({ children }) => {
         return saved ? JSON.parse(saved) : [];
     });
 
+    const [products, setProducts] = useState([]);
+    const [categories, setCategories] = useState(['All']);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [backendAvailable, setBackendAvailable] = useState(true);
@@ -28,13 +30,25 @@ export const ShopProvider = ({ children }) => {
             try {
                 await api.healthCheck();
                 setBackendAvailable(true);
+                refreshProducts();
             } catch (err) {
                 console.warn('Backend not available, using localStorage');
                 setBackendAvailable(false);
             }
         };
         checkBackend();
-    }, []);
+
+        // Set up polling for product and order updates
+        const intervalId = setInterval(() => {
+            if (backendAvailable) {
+                refreshProducts();
+                const token = localStorage.getItem('token');
+                if (token) syncOrdersFromBackend(token);
+            }
+        }, 30000); // Poll every 30 seconds
+
+        return () => clearInterval(intervalId);
+    }, [backendAvailable]);
 
     // Sync orders when token changes
     useEffect(() => {
@@ -54,6 +68,19 @@ export const ShopProvider = ({ children }) => {
     useEffect(() => {
         localStorage.setItem('orders_v3', JSON.stringify(orders));
     }, [orders]);
+
+    const refreshProducts = async () => {
+        try {
+            const fetchedProducts = await api.getAllProducts();
+            if (Array.isArray(fetchedProducts)) {
+                setProducts(fetchedProducts);
+                const uniqueCategories = ['All', ...new Set(fetchedProducts.map(p => p.category))];
+                setCategories(uniqueCategories);
+            }
+        } catch (error) {
+            console.error("Failed to fetch products:", error);
+        }
+    };
 
     // Sync orders from backend
     const syncOrdersFromBackend = async (token) => {
@@ -83,8 +110,9 @@ export const ShopProvider = ({ children }) => {
         }
     };
 
-    const addToCart = (product, quantity = 1, selectedOptions = null) => {
+    const addToCart = (product, quantity = 1, selectedOptions = null, adjustedPrice = null) => {
         setCart(prevCart => {
+            const finalPrice = adjustedPrice !== null ? adjustedPrice : product.price;
             const existing = prevCart.find(item =>
                 item.id === product.id &&
                 JSON.stringify(item.selectedOptions) === JSON.stringify(selectedOptions)
@@ -92,11 +120,11 @@ export const ShopProvider = ({ children }) => {
             if (existing) {
                 return prevCart.map(item =>
                     (item.id === product.id && JSON.stringify(item.selectedOptions) === JSON.stringify(selectedOptions))
-                        ? { ...item, quantity: item.quantity + quantity }
+                        ? { ...item, quantity: item.quantity + quantity, price: finalPrice }
                         : item
                 );
             }
-            return [...prevCart, { ...product, quantity, selectedOptions }];
+            return [...prevCart, { ...product, quantity, selectedOptions, price: finalPrice }];
         });
     };
 
@@ -136,7 +164,7 @@ export const ShopProvider = ({ children }) => {
                 customerEmail: user?.email,
                 date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
                 expectedDelivery: deliveryDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }),
-                status: 'Ready for Delivery'
+                status: 'Pending'
             };
 
             let newOrder = null;
@@ -174,7 +202,7 @@ export const ShopProvider = ({ children }) => {
                     subtotal: totalAmount + discount,
                     discount: discount,
                     items: [...cart],
-                    status: 'Ready for Delivery',
+                    status: 'Pending',
                     discountApplied: discount > 0,
                     timestamp: Date.now()
                 };
@@ -272,7 +300,10 @@ export const ShopProvider = ({ children }) => {
             isLoading,
             error,
             backendAvailable,
-            syncOrdersFromBackend
+            syncOrdersFromBackend,
+            products,
+            categories,
+            refreshProducts
         }}>
             {children}
         </ShopContext.Provider>

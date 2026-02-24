@@ -13,7 +13,7 @@ export const products = [
         name: 'iPhone 15 Pro Max',
         price: 1199.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1696446701796-da61225697cc?auto=format&fit=crop&q=80&w=600',
+        image: '/images/iphone_natural_titanium_clean_1771847498961.png',
         images: [
             'https://images.unsplash.com/photo-1696446701796-da61225697cc?auto=format&fit=crop&q=80&w=600',
             'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&q=80&w=600',
@@ -60,7 +60,7 @@ export const products = [
         name: 'Samsung Galaxy S24 Ultra',
         price: 1299.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1610940882244-5966236ca446?w=800&q=80',
         images: [
             'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&q=80&w=600',
             'https://images.unsplash.com/photo-1610945415295-d9baf165ce50?auto=format&fit=crop&q=80&w=600',
@@ -148,7 +148,7 @@ export const products = [
         name: 'OnePlus 12',
         price: 799.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1621330396173-e41b1cafd17f?w=800&q=80',
         images: [
             'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600',
             'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&q=80&w=600',
@@ -225,7 +225,7 @@ export const products = [
         name: 'Google Pixel 8a',
         price: 499.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&q=80',
         images: [
             'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=600',
             'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600',
@@ -269,10 +269,10 @@ export const products = [
     },
     {
         id: 34,
-        name: 'iPhone 15 Plus',
-        price: 899.00,
+        name: 'Motorola Edge 50 Pro',
+        price: 450.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1696446701796-da61225697cc?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1605170439002-90f450c99b2b?w=800&q=80',
         images: [
             'https://images.unsplash.com/photo-1696446701796-da61225697cc?auto=format&fit=crop&q=80&w=600',
             'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&q=80&w=600',
@@ -1003,25 +1003,23 @@ export const products = [
         price: 899.00,
         category: 'Home Decor',
         image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=600',
-        description: 'Luxurious velvet sofa with gold-finish legs. A statement piece for your living room.'
+        description: 'Luxurious velvet sofa with a modern silhouette and gold-finished legs.'
     },
     {
         id: 26,
         name: 'Abstract Canvas Wall Art',
-        price: 75.00,
+        price: 120.00,
         category: 'Home Decor',
-        image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=600',
-        description: 'Vibrant abstract wall art. Perfect for adding a touch of color to your space.'
+        image: 'https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&q=80&w=600',
+        description: 'Large-scale abstract painting with vibrant colors and expressive brushwork.'
     },
-
-
     {
         id: 70,
         name: 'Ceramic Vase Set',
         price: 45.00,
         category: 'Home Decor',
         image: 'https://images.unsplash.com/photo-1581783898377-1c85bf937427?auto=format&fit=crop&q=80&w=600',
-        description: 'Set of three modern ceramic vases in earthy tones.'
+        description: 'Set of three minimalist ceramic vases with unique textures.'
     },
 
 
@@ -1029,10 +1027,10 @@ export const products = [
     {
         id: 85,
         name: 'Decorative Mirror (Brass)',
-        price: 110.00,
+        price: 150.00,
         category: 'Home Decor',
         image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&q=80&w=600',
-        description: 'Large circular mirror with a slim brass-finish frame.'
+        description: 'Round decorative wall mirror with a hand-polished brass frame.'
     },
 
 
@@ -1040,10 +1038,10 @@ export const products = [
     {
         id: 28,
         name: 'LEGO Star Wars Millennium Falcon',
-        price: 160.00,
+        price: 169.99,
         category: 'Beauty & Toys',
-        image: 'https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?auto=format&fit=crop&q=80&w=600',
-        description: 'The perfect gift for Star Wars fans. Detailed Millennium Falcon set.'
+        image: 'https://images.unsplash.com/photo-1585366119957-e556f403e4e7?auto=format&fit=crop&q=80&w=600',
+        description: 'Iconic Star Wars starship recreated with authentic details.'
     },
 
     {
@@ -1051,47 +1049,39 @@ export const products = [
         name: 'Plush Teddy Bear',
         price: 25.00,
         category: 'Beauty & Toys',
-        image: 'https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&q=80&w=600',
-        description: 'Soft and cuddly teddy bear. A classic toy for kids of all ages.'
+        image: 'https://images.unsplash.com/photo-1559440666-44b204e32087?auto=format&fit=crop&q=80&w=600',
+        description: 'Soft and cuddly teddy bear, perfect for kids and adults alike.'
     },
 
     {
         id: 74,
         name: 'LEGO Technic 4x4 Off-Roader',
-        price: 199.00,
+        price: 249.99,
         category: 'Beauty & Toys',
-        image: 'https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?auto=format&fit=crop&q=80&w=600',
-        description: 'Powerful remote-controlled off-roader with advanced suspension.'
+        image: 'https://images.unsplash.com/photo-1533558701576-23c65e42c2fb?auto=format&fit=crop&q=80&w=600',
+        description: 'Advanced LEGO Technic building set for realistic off-road play.'
     },
     {
         id: 75,
         name: 'Dyson Airwrap Styler',
         price: 599.00,
         category: 'Beauty & Toys',
-        image: 'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&q=80&w=600',
-        description: 'Whole wheat bread. Freshly baked daily with no preservatives.',
-        options: {
-            weight: ['400g', '800g']
-        },
-        variantPricing: {
-            weight: { '400g': 0, '800g': 2 }
-        }
+        image: 'https://images.unsplash.com/photo-1647416390977-27088b90c7f0?auto=format&fit=crop&q=80&w=600',
+        description: 'Multi-styler to curl, shape, smooth, and hide flyaways with no extreme heat.'
     },
 
 
     {
         id: 87,
         name: 'Nintendo Switch OLED',
-        price: 349.00,
+        price: 349.99,
         category: 'Beauty & Toys',
         image: 'https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?auto=format&fit=crop&q=80&w=600',
-        description: 'Vibrant 7-inch OLED screen, wide adjustable stand, and enhanced audio.'
+        description: 'The newest addition to the Nintendo Switch family, with a vibrant OLED screen.'
     },
     {
         id: 88,
         name: 'Revlon One-Step Hair Dryer',
-        price: 45.00,
-        category: 'Beauty & Toys',
         image: 'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&q=80&w=600',
         description: 'Deliver gorgeous volume and brilliant shine in a single step.'
     },

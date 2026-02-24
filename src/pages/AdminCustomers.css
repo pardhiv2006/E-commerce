@@ -36,39 +36,32 @@
     color: #64748b;
 }
 
-.quick-signin-btn {
+.last-login-cell {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 16px;
-    background-color: var(--color-primary);
-    color: white;
-    border: none;
-    border-radius: 8px;
+}
+
+.login-clock-icon {
+    color: #94a3b8;
+    flex-shrink: 0;
+}
+
+.login-datetime {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.login-date {
     font-size: 0.85rem;
     font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    position: relative;
+    color: #1a1c1e;
 }
 
-.quick-signin-btn:hover {
-    background-color: var(--color-primary-dark, #2563eb);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(40, 116, 240, 0.2);
-}
-
-.checkbox-overlay {
-    background: #2874f0;
-    color: white;
-    width: 18px;
-    height: 18px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+.login-time {
+    font-size: 0.75rem;
+    color: #64748b;
 }
 
 .error-text {

@@ -55,6 +55,7 @@ const Cart = () => {
 
     const handleCheckout = () => {
         if (!user) {
+            // Store current cart or state if needed, but for now just redirect
             navigate('/login');
             return;
         }
@@ -69,7 +70,7 @@ const Cart = () => {
         return (
             <div className="container section">
                 <div className="cart-empty">
-                    <img src="https://rukminim2.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="Empty" width="200" />
+                    <img src="https://images.unsplash.com/photo-1557821552-17105176677c?w=400&q=80" alt="Empty" width="200" style={{ opacity: 0.6 }} />
                     <h2>Your cart is empty!</h2>
                     <p>Add items to it now.</p>
                     <Button onClick={() => navigate('/shop')} style={{ marginTop: '20px' }}>Shop Now</Button>
@@ -90,7 +91,13 @@ const Cart = () => {
                             <div key={`${item.id}-${JSON.stringify(item.selectedOptions)}`} className="cart-item">
                                 <div className="cart-item-image-col">
                                     <div className="cart-item-image">
-                                        <img src={item.image} alt={item.name} />
+                                        <img
+                                            src={item.image}
+                                            alt={item.name}
+                                            onError={(e) => {
+                                                e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZWVlIi8+PC9zdmc+';
+                                            }}
+                                        />
                                     </div>
                                     <div className="cart-qty-controls">
                                         <button onClick={() => updateQuantity(item.id, -1, item.selectedOptions)} disabled={item.quantity <= 1}>-</button>
@@ -138,6 +145,30 @@ const Cart = () => {
                             />
                             <button onClick={handleApplyCoupon} className="apply-coupon-btn">APPLY</button>
                         </div>
+
+                        {/* Suggested Coupons Section */}
+                        <div className="suggested-coupons">
+                            <p className="suggested-title">Available Offers:</p>
+                            <div className="coupon-suggestions-list">
+                                {coupons.filter(c => !appliedCoupon || c.code !== appliedCoupon.code).map(coupon => (
+                                    <div
+                                        key={coupon.code}
+                                        className={`suggested-coupon-item ${subtotal < coupon.minAmount ? 'disabled' : ''}`}
+                                        onClick={() => subtotal >= coupon.minAmount && setCouponInput(coupon.code)}
+                                    >
+                                        <div className="suggested-coupon-header">
+                                            <span className="coupon-code-pill">{coupon.code}</span>
+                                            <span className="coupon-save-badge">Save {(coupon.discount * 100).toFixed(0)}%</span>
+                                        </div>
+                                        <p className="coupon-desc-small">{coupon.description}</p>
+                                        {subtotal < coupon.minAmount && (
+                                            <p className="coupon-min-hint">Add ${(coupon.minAmount - subtotal).toFixed(2)} more to unlock</p>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
                         {couponError && <p className="coupon-error">{couponError}</p>}
                         {appliedCoupon && (
                             <div className="applied-coupon">

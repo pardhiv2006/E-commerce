@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Star } from 'lucide-react';
+import { Star, Eye, ShoppingCart as CartIcon } from 'lucide-react';
+import { useShop } from '../context/ShopContext';
 import './ProductCard.css';
 
 const ProductCard = ({ product }) => {
     const { id, name, price, image, images } = product;
+    const { addToCart } = useShop();
     const [imageIndex, setImageIndex] = useState(0);
 
     // Mocked data for Flipkart style
@@ -27,24 +29,33 @@ const ProductCard = ({ product }) => {
 
     return (
         <div className="product-card">
-            <Link 
-                to={`/product/${id}`} 
+            <div
                 className="product-image-container"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
-                <img 
-                    src={currentImage} 
-                    alt={name} 
-                    className="product-image"
-                    onError={(e) => {
-                        e.target.src = 'https://via.placeholder.com/300x300?text=Product';
-                    }}
-                />
+                <Link to={`/product/${id}`}>
+                    <img
+                        src={currentImage}
+                        alt={name}
+                        className="product-image"
+                        onError={(e) => {
+                            e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZWVlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCI+Tm8gSW1hZ2U8L3RleHQ+PC9zdmc+';
+                        }}
+                    />
+                </Link>
+                <div className="product-actions-overlay">
+                    <button className="action-btn" onClick={() => addToCart(product, 1)} title="Add to Cart">
+                        <CartIcon size={18} />
+                    </button>
+                    <Link to={`/product/${id}`} className="action-btn" title="View Details">
+                        <Eye size={18} />
+                    </Link>
+                </div>
                 {images && images.length > 1 && (
                     <div className="image-count-badge">{images.length} views</div>
                 )}
-            </Link>
+            </div>
             <div className="product-info">
                 <h3 className="product-name">
                     <Link to={`/product/${id}`}>{name}</Link>

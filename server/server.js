@@ -1,12 +1,19 @@
 import express from 'express';
 import cors from 'cors';
-// import { MongoMemoryServer } from 'mongodb-memory-server'; // Dynamically imported in dev
 import { MongoClient, ObjectId } from 'mongodb';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
+import multer from 'multer';
+import path from 'path';
+import fs from 'fs';
+import { default as crypto } from 'crypto';
+import { fileURLToPath } from 'url';
 import { createUser, findUserByEmail, validatePassword } from './models.js';
 
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -31,6 +38,26 @@ app.use(cors({
 }));
 app.use(express.json());
 
+// Set up uploads directory statically
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+    fs.mkdirSync(uploadsDir, { recursive: true });
+}
+app.use('/uploads', express.static(uploadsDir));
+
+// Multer Storage Configuration
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, uploadsDir);
+    },
+    filename: function (req, file, cb) {
+        // Create unique filename: timestamp-random.ext
+        const uniqueSuffix = Date.now() + '-' + crypto.randomBytes(4).toString('hex');
+        cb(null, 'product-' + uniqueSuffix + path.extname(file.originalname));
+    }
+});
+const upload = multer({ storage: storage });
+
 // MongoDB setup
 let db;
 let productsCollection;
@@ -43,65 +70,59 @@ async function initDB() {
         let MONGODB_URI = process.env.MONGODB_URI;
 
         if (MONGODB_URI) {
-            // Sanitize URI (remove quotes if user pasted them, trim whitespace)
+            // Sanitize URI
             MONGODB_URI = MONGODB_URI.trim();
             if ((MONGODB_URI.startsWith('"') && MONGODB_URI.endsWith('"')) ||
                 (MONGODB_URI.startsWith("'") && MONGODB_URI.endsWith("'"))) {
                 MONGODB_URI = MONGODB_URI.slice(1, -1);
-                console.log('⚠️ Removed surrounding quotes from MONGODB_URI');
             }
 
-            console.log(`🔍 MONGODB_URI check: Length=${MONGODB_URI.length}, StartsWith=${MONGODB_URI.substring(0, 15)}...`);
-
-            if (!MONGODB_URI.startsWith('mongodb://') && !MONGODB_URI.startsWith('mongodb+srv://')) {
-                console.error('❌ FATAL: Invalid MONGODB_URI format. It must start with "mongodb://" or "mongodb+srv://"');
-                throw new Error('Invalid MONGODB_URI format');
+            // Detection of placeholder password
+            if (MONGODB_URI.includes('<db_password>')) {
+                console.warn('⚠️ Detected placeholder <db_password> in MONGODB_URI.');
+                if (process.env.NODE_ENV === 'production') {
+                    console.error('❌ FATAL: You must provide a real password in your MONGODB_URI for production.');
+                    process.exit(1);
+                } else {
+                    console.info('ℹ️ Falling back to local in-memory database for development...');
+                    await useLocalDB();
+                    await seedProducts();
+                    return true;
+                }
             }
 
             // Production: Use MongoDB Atlas
             console.log('🌐 Connecting to MongoDB Atlas (Production)...');
-            const client = new MongoClient(MONGODB_URI);
-            await client.connect();
-            db = client.db('firstmart');
-            productsCollection = db.collection('products');
-            ordersCollection = db.collection('orders');
-            usersCollection = db.collection('users');
-            console.log('✅ Connected to MongoDB Atlas');
+            try {
+                const client = new MongoClient(MONGODB_URI, {
+                    connectTimeoutMS: 5000,
+                    serverSelectionTimeoutMS: 5000
+                });
+                await client.connect();
+                db = client.db('firstmart');
+                productsCollection = db.collection('products');
+                ordersCollection = db.collection('orders');
+                usersCollection = db.collection('users');
+                console.log('✅ Connected to MongoDB Atlas');
+            } catch (atlasError) {
+                console.error('❌ Failed to connect to MongoDB Atlas:', atlasError.message);
+
+                if (process.env.NODE_ENV === 'production') {
+                    throw atlasError;
+                }
+
+                console.info('ℹ️ Falling back to local in-memory database...');
+                await useLocalDB();
+            }
         } else {
             // Prevent in-memory DB in production to avoid crashes
             if (process.env.NODE_ENV === 'production') {
                 console.error('❌ FATAL: MONGODB_URI is required in production environment!');
-                console.error('Please add MONGODB_URI to your Render Environment Variables.');
                 process.exit(1);
             }
 
             // Local Development: Use MongoMemoryServer
-            console.log('⚠️ Using in-memory MongoDB with local persistence...');
-            const { MongoMemoryServer } = await import('mongodb-memory-server');
-            const fs = await import('fs');
-            const path = await import('path');
-            const dbPath = path.resolve(process.cwd(), 'db-data');
-
-            if (!fs.existsSync(dbPath)) {
-                fs.mkdirSync(dbPath, { recursive: true });
-                console.log('📁 Created persistent DB directory:', dbPath);
-            }
-
-            const mongod = await MongoMemoryServer.create({
-                instance: {
-                    dbPath: dbPath,
-                    storageEngine: 'wiredTiger'
-                }
-            });
-            const uri = mongod.getUri();
-
-            const client = new MongoClient(uri);
-            await client.connect();
-            db = client.db('firstmart');
-            productsCollection = db.collection('products');
-            ordersCollection = db.collection('orders');
-            usersCollection = db.collection('users');
-            console.log('✅ Connected to MongoDB (Local)');
+            await useLocalDB();
         }
 
         // Seed initial data
@@ -111,6 +132,36 @@ async function initDB() {
         console.error('❌ Failed to initialize database:', error);
         throw error;
     }
+}
+
+// Helper to setup local in-memory DB
+async function useLocalDB() {
+    console.log('⚠️ Using in-memory MongoDB with local persistence...');
+    const { MongoMemoryServer } = await import('mongodb-memory-server');
+    const fs = await import('fs');
+    const path = await import('path');
+    const dbPath = path.resolve(process.cwd(), 'db-data');
+
+    if (!fs.existsSync(dbPath)) {
+        fs.mkdirSync(dbPath, { recursive: true });
+        console.log('📁 Created persistent DB directory:', dbPath);
+    }
+
+    const mongod = await MongoMemoryServer.create({
+        instance: {
+            dbPath: dbPath,
+            storageEngine: 'wiredTiger'
+        }
+    });
+    const uri = mongod.getUri();
+
+    const client = new MongoClient(uri);
+    await client.connect();
+    db = client.db('firstmart');
+    productsCollection = db.collection('products');
+    ordersCollection = db.collection('orders');
+    usersCollection = db.collection('users');
+    console.log('✅ Connected to MongoDB (Local)');
 }
 
 // Seed products data
@@ -166,6 +217,13 @@ app.post('/api/auth/login', async (req, res) => {
             return res.status(401).json({ error: 'Invalid email or password' });
         }
 
+        // Stamp last login time
+        const lastLoginAt = new Date();
+        await db.collection('users').updateOne(
+            { _id: user._id },
+            { $set: { lastLoginAt } }
+        );
+
         const token = jwt.sign(
             { id: user._id, email: user.email, username: user.username },
             JWT_SECRET,
@@ -174,7 +232,7 @@ app.post('/api/auth/login', async (req, res) => {
 
         res.json({
             token,
-            user: { id: user._id, email: user.email, username: user.username }
+            user: { id: user._id, email: user.email, username: user.username, lastLoginAt }
         });
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -235,6 +293,129 @@ app.get('/api/products/search/:query', async (req, res) => {
     }
 });
 
+// Upload Image Route
+app.post('/api/upload', upload.single('image'), (req, res) => {
+    try {
+        if (!req.file) {
+            return res.status(400).json({ error: 'No image file provided' });
+        }
+        // Return the relative URL to access the locally hosted image
+        const imageUrl = `/uploads/${req.file.filename}`;
+        res.status(200).json({ url: imageUrl });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Create product
+app.post('/api/products', async (req, res) => {
+    try {
+        const product = req.body;
+
+        // Basic validation
+        if (!product.name || typeof product.price !== 'number' || !product.category) {
+            return res.status(400).json({ error: 'Name, price, and category are required' });
+        }
+
+        // Generate a simple numeric ID if not provided (for frontend compatibility)
+        if (!product.id) {
+            const lastProduct = await productsCollection.find().sort({ id: -1 }).limit(1).toArray();
+            product.id = lastProduct.length > 0 ? (lastProduct[0].id + 1) : 1;
+        }
+
+        const result = await productsCollection.insertOne(product);
+        res.status(201).json({ ...product, _id: result.insertedId });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Update product
+app.put('/api/products/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const updates = req.body;
+
+        delete updates._id; // Prevent updating _id
+
+        let query;
+        try {
+            query = { _id: new ObjectId(id) };
+        } catch {
+            query = { id: parseInt(id) };
+        }
+
+        const result = await productsCollection.findOneAndUpdate(
+            query,
+            { $set: updates },
+            { returnDocument: 'after' }
+        );
+
+        if (!result) {
+            return res.status(404).json({ error: 'Product not found' });
+        }
+
+        res.json(result);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Delete product
+app.delete('/api/products/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+
+        let query;
+        try {
+            query = { _id: new ObjectId(id) };
+        } catch {
+            query = { id: parseInt(id) };
+        }
+
+        const result = await productsCollection.deleteOne(query);
+        console.log(`🗑️ Deletion attempt for ID: ${id}, query: ${JSON.stringify(query)}, Result: ${result.deletedCount}`);
+
+        if (result.deletedCount === 0) {
+            return res.status(404).json({ error: 'Product not found' });
+        }
+
+        res.json({ message: 'Product deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Category Management
+// Delete all products in a category (effectively deleting the category)
+app.delete('/api/categories/:name', async (req, res) => {
+    try {
+        const categoryName = req.params.name;
+        const result = await productsCollection.deleteMany({ category: categoryName });
+        console.log(`🗑️ Category deletion: ${categoryName}, Found/Deleted: ${result.deletedCount}`);
+        res.json({ message: `Deleted ${result.deletedCount} products from category ${categoryName}` });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Rename a category across all products
+app.put('/api/categories/:name', async (req, res) => {
+    try {
+        const oldName = req.params.name;
+        const { newName } = req.body;
+        if (!newName) return res.status(400).json({ error: 'New name is required' });
+
+        const result = await productsCollection.updateMany(
+            { category: oldName },
+            { $set: { category: newName } }
+        );
+        res.json({ message: `Updated ${result.modifiedCount} products from ${oldName} to ${newName}` });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
 // Order Routes
 
 // Create order
@@ -265,7 +446,7 @@ app.post('/api/orders', async (req, res) => {
             customerEmail: customerEmail || '',
             date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
             expectedDelivery: expectedDelivery.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }),
-            status: 'Ready for Delivery',
+            status: 'Pending',
             createdAt: new Date(),
             timestamp: Date.now()
         };
@@ -368,6 +549,12 @@ app.get('/api/customers', async (req, res) => {
 app.get('/api/health', (req, res) => {
     res.json({ status: 'OK', message: 'First Mart API is running' });
 });
+
+// Root route
+app.get('/', (req, res) => {
+    res.send('<h1>First Mart Server is running</h1><p>Visit <a href="/api/health">/api/health</a> for status.</p>');
+});
+
 // Define PORT (Required for Render)
 const PORT = process.env.PORT || 5000;
 

@@ -96,13 +96,118 @@
     top: 80px;
 }
 
-.filters h3 {
-    margin-bottom: 16px;
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--color-text-main);
+.filter-group-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
     padding-bottom: 12px;
     border-bottom: 1px solid #f0f0f0;
+}
+
+.filter-group-header h3 {
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+}
+
+.clear-btn {
+    font-size: 0.8rem;
+    color: var(--color-primary);
+    font-weight: 500;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.filter-section {
+    margin-bottom: 24px;
+}
+
+.filter-section h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--color-text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.price-inputs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.price-inputs input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    font-size: 0.9rem;
+}
+
+.price-inputs input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.price-inputs span {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.color-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.color-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    background-color: #f0f0f0;
+}
+
+.color-btn.active {
+    border-color: var(--color-primary);
+    transform: scale(1.15);
+}
+
+.size-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.size-btn {
+    padding: 6px 10px;
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    font-size: 0.8rem;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 35px;
+}
+
+.size-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.size-btn.active {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
 }
 
 .category-list li button {

@@ -53,6 +53,7 @@ const Signup = () => {
                     <div className="form-group">
                         <label htmlFor="username">Full Name / Username</label>
                         <div className="input-wrapper">
+                            <User size={20} className="input-icon" />
                             <input
                                 type="text"
                                 id="username"
@@ -61,13 +62,13 @@ const Signup = () => {
                                 placeholder="Enter your username"
                                 required
                             />
-                            <User size={20} className="input-icon" />
                         </div>
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="email">Email Address</label>
                         <div className="input-wrapper">
+                            <Mail size={20} className="input-icon" />
                             <input
                                 type="email"
                                 id="email"
@@ -76,13 +77,13 @@ const Signup = () => {
                                 placeholder="name@example.com"
                                 required
                             />
-                            <Mail size={20} className="input-icon" />
                         </div>
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="password">Password</label>
                         <div className="input-wrapper">
+                            <Lock size={20} className="input-icon" />
                             <input
                                 type="password"
                                 id="password"
@@ -90,9 +91,7 @@ const Signup = () => {
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Create a strong password"
                                 required
-                                minLength={6}
                             />
-                            <Lock size={20} className="input-icon" />
                         </div>
                     </div>
 
@@ -122,6 +121,9 @@ const Signup = () => {
 
                 <div className="auth-footer">
                     <p>Already have an account? <Link to="/login">Sign in</Link></p>
+                    <p style={{ marginTop: '1rem', fontSize: '0.85rem' }}>
+                        <Link to="/admin/login" style={{ color: 'var(--color-text-muted)', fontWeight: '500' }}>Admin Login</Link>
+                    </p>
                 </div>
             </div>
         </div>

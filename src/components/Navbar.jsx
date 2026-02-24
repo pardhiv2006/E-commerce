@@ -10,6 +10,16 @@ const Navbar = () => {
     const navigate = useNavigate();
     const { cartCount, searchQuery, setSearchQuery } = useShop();
     const { user } = useAuth();
+    const [isCartBumping, setIsCartBumping] = React.useState(false);
+    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+    // Cart bump animation effect
+    React.useEffect(() => {
+        if (cartCount === 0) return;
+        setIsCartBumping(true);
+        const timer = setTimeout(() => setIsCartBumping(false), 300);
+        return () => clearTimeout(timer);
+    }, [cartCount]);
 
     const handleSearch = (e) => {
         setSearchQuery(e.target.value);
@@ -70,11 +80,11 @@ const Navbar = () => {
                         <Link to="/cart" className="nav-item cart-link">
                             <ShoppingCart size={20} />
                             <span>Cart</span>
-                            {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+                            {cartCount > 0 && <span className={`cart-badge ${isCartBumping ? 'bump' : ''}`}>{cartCount}</span>}
                         </Link>
                     </div>
 
-                    <div className="nav-item more-menu">
+                    <div className="nav-item more-menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                         <Menu size={20} className="mobile-only" />
                     </div>
                 </div>

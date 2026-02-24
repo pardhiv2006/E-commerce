@@ -9,12 +9,33 @@ import Orders from './pages/Orders';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import UserMenu from './pages/UserMenu';
+import AdminDashboard from './pages/AdminDashboard';
+import AdminProducts from './pages/AdminProducts';
+import AdminCategories from './pages/AdminCategories';
+import AdminLogin from './pages/AdminLogin';
+import AdminLayout from './components/AdminLayout';
+import AdminCustomers from './pages/AdminCustomers';
 
 function App() {
   return (
     <Router>
       <div className="app-layout">
         <Routes>
+          {/* Admin Routes */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/*" element={
+            <AdminLayout>
+              <Routes>
+                <Route path="/dashboard" element={<AdminDashboard />} />
+                <Route path="/products" element={<AdminProducts />} />
+                <Route path="/categories" element={<AdminCategories />} />
+                <Route path="/orders" element={<AdminDashboard />} />
+                <Route path="/customers" element={<AdminCustomers />} />
+                <Route path="*" element={<AdminDashboard />} />
+              </Routes>
+            </AdminLayout>
+          } />
+
           {/* Main App Routes */}
           <Route path="*" element={
             <>

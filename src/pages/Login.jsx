@@ -62,6 +62,7 @@ const Login = () => {
                     <div className="form-group">
                         <label htmlFor="email">Email Address</label>
                         <div className="input-wrapper">
+                            <Mail size={20} className="input-icon" />
                             <input
                                 type="email"
                                 id="email"
@@ -70,13 +71,13 @@ const Login = () => {
                                 placeholder="name@example.com"
                                 required
                             />
-                            <Mail size={20} className="input-icon" />
                         </div>
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="password">Password</label>
                         <div className="input-wrapper">
+                            <Lock size={20} className="input-icon" />
                             <input
                                 type="password"
                                 id="password"
@@ -85,7 +86,6 @@ const Login = () => {
                                 placeholder="Enter your password"
                                 required
                             />
-                            <Lock size={20} className="input-icon" />
                         </div>
                     </div>
 
@@ -115,6 +115,9 @@ const Login = () => {
 
                 <div className="auth-footer">
                     <p>New to First Mart? <Link to="/signup">Create an account</Link></p>
+                    <p style={{ marginTop: '1rem', fontSize: '0.85rem' }}>
+                        <Link to="/admin/login" style={{ color: 'var(--color-text-muted)', fontWeight: '500' }}>Admin Login</Link>
+                    </p>
                 </div>
             </div>
         </div>

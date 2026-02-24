@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import {
-    User, Mail, LogOut, LayoutDashboard,
-    ShoppingBag, Users, BarChart3, Settings,
-    ArrowLeft, ChevronRight, Package, ShoppingCart
+    User, LogOut, ChevronRight, ArrowLeft
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import AdminDashboard from './AdminDashboard';
-import AdminProducts from './AdminProducts';
-import AdminCustomers from './AdminCustomers';
 import './UserMenu.css';
 
 const UserMenu = () => {
@@ -16,13 +11,10 @@ const UserMenu = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    // Check for initial tab in query params
-    const queryParams = new URLSearchParams(location.search);
-    const initialTab = queryParams.get('tab') || 'Dashboard';
-
-    const [activeTab, setActiveTab] = useState(initialTab);
+    const [activeTab, setActiveTab] = useState('Profile');
 
     useEffect(() => {
+        const queryParams = new URLSearchParams(location.search);
         const tab = queryParams.get('tab');
         if (tab) setActiveTab(tab);
     }, [location.search]);
@@ -32,27 +24,8 @@ const UserMenu = () => {
         navigate('/');
     };
 
-    const adminLinks = [
-        { name: 'Dashboard', icon: <LayoutDashboard size={20} />, color: '#2874f0' },
-        { name: 'Product Management', icon: <Package size={20} />, color: '#ff9f00' },
-        { name: 'Order Processing', icon: <ShoppingCart size={20} />, color: '#388e3c' },
-        { name: 'Customer Insights', icon: <Users size={20} />, color: '#00bcd4' },
-    ];
-
-    const supportLinks = [
-        { name: 'Sales Reports', icon: <BarChart3 size={20} />, color: '#9c27b0' },
-        { name: 'System Settings', icon: <Settings size={20} />, color: '#607d8b' },
-    ];
-
     const renderContent = () => {
         switch (activeTab) {
-            case 'Dashboard':
-            case 'Order Processing':
-                return <AdminDashboard />;
-            case 'Product Management':
-                return <AdminProducts />;
-            case 'Customer Insights':
-                return <AdminCustomers />;
             case 'Profile':
                 return (
                     <div className="admin-card profile-view-full">
@@ -117,54 +90,6 @@ const UserMenu = () => {
                                 <ChevronRight size={18} className="chevron" />
                             </div>
                         </button>
-                    </div>
-
-                    <div className="section-divider"></div>
-
-                    {/* Admin Panel Section */}
-                    <div className="menu-group theme-white">
-                        <div className="group-label">Admin Management</div>
-                        <div className="vertical-list">
-                            {adminLinks.map((link) => (
-                                <button
-                                    key={link.name}
-                                    className={`list-item ${activeTab === link.name ? 'active' : ''}`}
-                                    onClick={() => setActiveTab(link.name)}
-                                >
-                                    <div className="item-icon-wrapper" style={{ backgroundColor: `${link.color}15`, color: link.color }}>
-                                        {link.icon}
-                                    </div>
-                                    <div className="item-content">
-                                        <span>{link.name}</span>
-                                        <ChevronRight size={18} className="chevron" />
-                                    </div>
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="section-divider"></div>
-
-                    {/* Support Section */}
-                    <div className="menu-group theme-white">
-                        <div className="group-label">Reports & Tools</div>
-                        <div className="vertical-list">
-                            {supportLinks.map((link) => (
-                                <button
-                                    key={link.name}
-                                    className={`list-item ${activeTab === link.name ? 'active' : ''}`}
-                                    onClick={() => setActiveTab(link.name)}
-                                >
-                                    <div className="item-icon-wrapper" style={{ backgroundColor: `${link.color}15`, color: link.color }}>
-                                        {link.icon}
-                                    </div>
-                                    <div className="item-content">
-                                        <span>{link.name}</span>
-                                        <ChevronRight size={18} className="chevron" />
-                                    </div>
-                                </button>
-                            ))}
-                        </div>
                     </div>
 
                     <div className="section-divider"></div>

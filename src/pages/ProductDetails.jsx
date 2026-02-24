@@ -1,31 +1,77 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { Star, ShoppingCart, Zap, ChevronLeft, ChevronRight } from 'lucide-react';
-import { products } from '../data';
 import Button from '../components/Button';
 import { useShop } from '../context/ShopContext';
+import { api } from '../services/api';
 import './ProductDetails.css';
 
 const ProductDetails = () => {
     const { id } = useParams();
     const navigate = useNavigate();
+    const [searchParams, setSearchParams] = useSearchParams();
     const { addToCart } = useShop();
-    const product = products.find(p => p.id === parseInt(id));
+
+    const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
     const [quantity, setQuantity] = useState(1);
     const [selectedOptions, setSelectedOptions] = useState({});
     const [currentImages, setCurrentImages] = useState([]);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
-    // Initialize selected options
+    // Fetch product details from backend
     useEffect(() => {
-        if (product && product.options) {
-            const initialOptions = {};
-            Object.keys(product.options).forEach(key => {
-                initialOptions[key] = product.options[key][0];
-            });
-            setSelectedOptions(initialOptions);
+        const fetchProduct = async () => {
+            try {
+                // Ensure ID is passed correctly, whether string or integer based on backend expectation
+                const fetchedProduct = await api.getProductById(id);
+                setProduct(fetchedProduct);
+            } catch (err) {
+                console.error("Failed to fetch product details:", err);
+                setError("Product not found or failed to load.");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (id) {
+            fetchProduct();
         }
-    }, [product]);
+    }, [id]);
+
+    // Initialize/Sync selected options with URL query parameters
+    useEffect(() => {
+        if (!product || !product.options) return;
+
+        const newOptions = {};
+        let hasUrlUpdates = false;
+        const updatedParams = new URLSearchParams(searchParams);
+
+        Object.entries(product.options).forEach(([key, values]) => {
+            const urlValue = searchParams.get(key);
+            if (urlValue && values.includes(urlValue)) {
+                newOptions[key] = urlValue;
+            } else {
+                // Default to first option if not in URL
+                newOptions[key] = values[0];
+                updatedParams.set(key, values[0]);
+                hasUrlUpdates = true;
+            }
+        });
+
+        // Only update state if options actually changed to avoid re-renders
+        setSelectedOptions(prev => {
+            const isSame = Object.keys(newOptions).every(k => prev[k] === newOptions[k]);
+            return isSame ? prev : newOptions;
+        });
+
+        // If we set defaults that weren't in the URL, update the URL silently
+        if (hasUrlUpdates) {
+            setSearchParams(updatedParams, { replace: true });
+        }
+    }, [product, searchParams, setSearchParams]);
 
     // Update images when color changes or product loads
     useEffect(() => {
@@ -33,7 +79,8 @@ const ProductDetails = () => {
             // If product has colorImages and a color is selected
             if (product.colorImages && selectedOptions.colors) {
                 const colorKey = selectedOptions.colors;
-                setCurrentImages(product.colorImages[colorKey] || product.images || [product.image]);
+                const images = product.colorImages[colorKey] || product.images || [product.image];
+                setCurrentImages(images);
             }
             // If product has images array but no color-specific images
             else if (product.images) {
@@ -48,8 +95,12 @@ const ProductDetails = () => {
         }
     }, [product, selectedOptions.colors]);
 
-    if (!product) {
-        return <div className="container section">Product not found.</div>;
+    if (loading) {
+        return <div className="container section" style={{ textAlign: 'center', padding: '5rem' }}>Loading product details...</div>;
+    }
+
+    if (error || !product) {
+        return <div className="container section" style={{ textAlign: 'center', padding: '5rem', color: 'red' }}>{error || 'Product not found.'}</div>;
     }
 
     const { name, price, image, description, category, options, variantPricing } = product;
@@ -76,13 +127,13 @@ const ProductDetails = () => {
     const originalPrice = currentPrice / (1 - discount / 100);
 
     const handleOptionSelect = (key, value) => {
-        setSelectedOptions(prev => ({ ...prev, [key]: value }));
+        const newParams = new URLSearchParams(searchParams);
+        newParams.set(key, value);
+        setSearchParams(newParams);
     };
 
     const handleAddToCart = () => {
-        // Pass the current price with the product
-        const productWithPrice = { ...product, price: currentPrice };
-        addToCart(productWithPrice, quantity, selectedOptions);
+        addToCart(product, quantity, selectedOptions, currentPrice);
         navigate('/cart');
     };
 
@@ -92,6 +143,45 @@ const ProductDetails = () => {
 
     const handlePrevImage = () => {
         setSelectedImageIndex((prev) => (prev - 1 + currentImages.length) % currentImages.length);
+    };
+
+    // Color Mapping for Premium Swatches
+    const getColorValue = (colorName) => {
+        const colorMap = {
+            'Natural Titanium': '#bebebe',
+            'Blue Titanium': '#464e56',
+            'White Titanium': '#f2f2f2',
+            'Black Titanium': '#2c2c2c',
+            'Titanium Gray': '#8c8c8c',
+            'Titanium Black': '#212121',
+            'Titanium Violet': '#4b4b7c',
+            'Titanium Yellow': '#f5e49e',
+            'Obsidian': '#2b2b2b',
+            'Porcelain': '#f0ede5',
+            'Bay': '#7fbde1',
+            'Flowy Emerald': '#50c878',
+            'Silky Black': '#1a1a1a',
+            'Silver': '#c0c0c0',
+            'Black': '#000000',
+            'Midnight Blue': '#191970',
+            'Light Wash': '#add8e6',
+            'Dark Wash': '#00008b'
+        };
+        return colorMap[colorName] || colorName.toLowerCase().replace(' ', '');
+    };
+
+    // Calculate dynamic CSS filter for specific products to simulate perfect color-variants
+    const getImageStyle = () => {
+        if (name === "Levi's Denim Jacket" && selectedOptions.colors) {
+            if (selectedOptions.colors === 'Light Wash') {
+                return { filter: 'brightness(1.5) saturate(0.6) hue-rotate(-10deg)' };
+            }
+            if (selectedOptions.colors === 'Black') {
+                return { filter: 'grayscale(1) brightness(0.6) contrast(1.2)' };
+            }
+            // Dark Wash is the base image, no filter needed
+        }
+        return {};
     };
 
     return (
@@ -106,8 +196,9 @@ const ProductDetails = () => {
                             src={currentImages[selectedImageIndex] || image}
                             alt={`${name} - View ${selectedImageIndex + 1}`}
                             className="main-image"
+                            style={getImageStyle()}
                             onError={(e) => {
-                                e.target.src = 'https://via.placeholder.com/600x600?text=Product+Image';
+                                e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZWVlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIzMCI+Tm8gSW1hZ2U8L3RleHQ+PC9zdmc+';
                             }}
                         />
                         {currentImages.length > 1 && (
@@ -147,11 +238,12 @@ const ProductDetails = () => {
                                     className={`thumbnail ${selectedImageIndex === index ? 'active' : ''}`}
                                     onClick={() => setSelectedImageIndex(index)}
                                 >
-                                    <img 
-                                        src={img} 
+                                    <img
+                                        src={img}
                                         alt={`${name} - Thumbnail ${index + 1}`}
+                                        style={getImageStyle()}
                                         onError={(e) => {
-                                            e.target.src = 'https://via.placeholder.com/150x150?text=Img';
+                                            e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZWVlIi8+PC9zdmc+';
                                         }}
                                     />
                                 </div>
@@ -188,7 +280,7 @@ const ProductDetails = () => {
                                     <button
                                         key={value}
                                         className={`variant-btn ${selectedOptions[key] === value ? 'active' : ''} ${key === 'colors' ? 'color-swatch' : ''}`}
-                                        style={key === 'colors' ? { backgroundColor: value.toLowerCase().replace(' ', '') } : {}}
+                                        style={key === 'colors' ? { backgroundColor: getColorValue(value) } : {}}
                                         onClick={() => handleOptionSelect(key, value)}
                                         title={value}
                                     >

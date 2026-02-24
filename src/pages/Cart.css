@@ -422,15 +422,82 @@
     }
 }
 
-@media (max-width: 768px) {
-    .cart-item {
-        flex-direction: column;
-        gap: 16px;
-    }
 
-    .cart-item-image-col {
-        flex-direction: row;
-        width: 100%;
-        justify-content: space-between;
-    }
+/* Suggested Coupons */
+.suggested-coupons {
+    margin-top: 1rem;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+.suggested-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.coupon-suggestions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.suggested-coupon-item {
+    padding: 10px;
+    border: 1px dashed var(--color-primary);
+    border-radius: 8px;
+    background-color: rgba(40, 116, 240, 0.05);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.suggested-coupon-item:hover {
+    background-color: rgba(40, 116, 240, 0.1);
+    transform: translateY(-2px);
+}
+
+.suggested-coupon-item.disabled {
+    border-color: #ddd;
+    background-color: #f9f9f9;
+    cursor: default;
+    opacity: 0.7;
+}
+
+.suggested-coupon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.coupon-code-pill {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    background: white;
+    padding: 2px 8px;
+    border: 1px solid var(--color-primary);
+    border-radius: 4px;
+}
+
+.coupon-save-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #388e3c;
+}
+
+.coupon-desc-small {
+    font-size: 0.75rem;
+    color: #444;
+    margin: 0;
+}
+
+.coupon-min-hint {
+    font-size: 0.7rem;
+    color: #e53935;
+    margin: 4px 0 0 0;
+    font-style: italic;
 }
