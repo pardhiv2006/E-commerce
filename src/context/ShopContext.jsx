@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { api } from '../services/api';
 import { useAuth } from './AuthContext';
+import { products as staticProducts, categories as staticCategories } from '../data';
 
 const ShopContext = createContext();
 
@@ -18,8 +19,8 @@ export const ShopProvider = ({ children }) => {
         return saved ? JSON.parse(saved) : [];
     });
 
-    const [products, setProducts] = useState([]);
-    const [categories, setCategories] = useState(['All']);
+    const [products, setProducts] = useState(staticProducts);
+    const [categories, setCategories] = useState(staticCategories);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [backendAvailable, setBackendAvailable] = useState(true);
@@ -72,13 +73,19 @@ export const ShopProvider = ({ children }) => {
     const refreshProducts = async () => {
         try {
             const fetchedProducts = await api.getAllProducts();
-            if (Array.isArray(fetchedProducts)) {
+            if (Array.isArray(fetchedProducts) && fetchedProducts.length > 0) {
                 setProducts(fetchedProducts);
                 const uniqueCategories = ['All', ...new Set(fetchedProducts.map(p => p.category))];
                 setCategories(uniqueCategories);
+            } else {
+                // Fallback to static data if backend returns empty or non-array
+                setProducts(staticProducts);
+                setCategories(staticCategories);
             }
         } catch (error) {
-            console.error("Failed to fetch products:", error);
+            console.error("Failed to fetch products, using static data:", error);
+            setProducts(staticProducts);
+            setCategories(staticCategories);
         }
     };
 

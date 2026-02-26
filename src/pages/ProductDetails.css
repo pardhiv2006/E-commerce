@@ -46,6 +46,8 @@
     justify-content: center;
     border: 1px solid #e0e0e0;
     position: relative;
+    isolation: isolate;
+    /* contain blend mode to this box */
 }
 
 .main-image {
@@ -61,6 +63,19 @@
 
 .main-image:hover {
     transform: scale(1.05);
+}
+
+/* Flipkart-style color tint overlay — colors ONLY the product, not the bg */
+.color-tint-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    /* 'color' blend mode: takes Hue+Saturation from overlay, Luminosity from base.
+       Pure white (L=100%) stays white. Product pixels shift to selected color. */
+    mix-blend-mode: color;
+    transition: background-color 0.35s ease, opacity 0.35s ease;
+    border-radius: 4px;
+    z-index: 2;
 }
 
 /* Navigation Arrows */
@@ -79,7 +94,7 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    z-index: 10;
+    z-index: 12;
 }
 
 .nav-arrow:hover {

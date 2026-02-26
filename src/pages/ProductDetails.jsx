@@ -4,6 +4,7 @@ import { Star, ShoppingCart, Zap, ChevronLeft, ChevronRight } from 'lucide-react
 import Button from '../components/Button';
 import { useShop } from '../context/ShopContext';
 import { api } from '../services/api';
+import { products as staticProducts } from '../data';
 import './ProductDetails.css';
 
 const ProductDetails = () => {
@@ -21,16 +22,29 @@ const ProductDetails = () => {
     const [currentImages, setCurrentImages] = useState([]);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
-    // Fetch product details from backend
+    // Fetch product details — try API first, fall back to static data
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                // Ensure ID is passed correctly, whether string or integer based on backend expectation
                 const fetchedProduct = await api.getProductById(id);
-                setProduct(fetchedProduct);
+                // API may return an error object or null when backend is down
+                if (fetchedProduct && fetchedProduct.id) {
+                    setProduct(fetchedProduct);
+                } else {
+                    throw new Error('Invalid product data from API');
+                }
             } catch (err) {
-                console.error("Failed to fetch product details:", err);
-                setError("Product not found or failed to load.");
+                console.warn('API fetch failed, falling back to static data:', err);
+                // Fall back to static products array
+                const numericId = parseInt(id, 10);
+                const staticProduct = staticProducts.find(
+                    p => p.id === numericId || p.id === id
+                );
+                if (staticProduct) {
+                    setProduct(staticProduct);
+                } else {
+                    setError('Product not found.');
+                }
             } finally {
                 setLoading(false);
             }
@@ -73,27 +87,28 @@ const ProductDetails = () => {
         }
     }, [product, searchParams, setSearchParams]);
 
-    // Update images when color changes or product loads
+    // Initialize images when product loads
     useEffect(() => {
         if (product) {
-            // If product has colorImages and a color is selected
-            if (product.colorImages && selectedOptions.colors) {
-                const colorKey = selectedOptions.colors;
-                const images = product.colorImages[colorKey] || product.images || [product.image];
-                setCurrentImages(images);
-            }
-            // If product has images array but no color-specific images
-            else if (product.images) {
+            if (product.images && product.images.length > 0) {
                 setCurrentImages(product.images);
-            }
-            // Fallback to single image
-            else {
+            } else {
                 setCurrentImages([product.image]);
             }
-            // Reset to first image when images change
             setSelectedImageIndex(0);
         }
-    }, [product, selectedOptions.colors]);
+    }, [product]);
+
+    // Update displayed image when color selection changes (real image swap)
+    useEffect(() => {
+        if (product && selectedOptions.colors && product.colorImages) {
+            const colorImg = product.colorImages[selectedOptions.colors];
+            if (colorImg) {
+                setCurrentImages([colorImg]);
+                setSelectedImageIndex(0);
+            }
+        }
+    }, [selectedOptions.colors, product]);
 
     if (loading) {
         return <div className="container section" style={{ textAlign: 'center', padding: '5rem' }}>Loading product details...</div>;
@@ -145,29 +160,62 @@ const ProductDetails = () => {
         setSelectedImageIndex((prev) => (prev - 1 + currentImages.length) % currentImages.length);
     };
 
-    // Color Mapping for Premium Swatches
+    // Color Mapping for Premium Swatches + Overlay
     const getColorValue = (colorName) => {
         const colorMap = {
-            'Natural Titanium': '#bebebe',
-            'Blue Titanium': '#464e56',
-            'White Titanium': '#f2f2f2',
-            'Black Titanium': '#2c2c2c',
-            'Titanium Gray': '#8c8c8c',
-            'Titanium Black': '#212121',
-            'Titanium Violet': '#4b4b7c',
-            'Titanium Yellow': '#f5e49e',
-            'Obsidian': '#2b2b2b',
-            'Porcelain': '#f0ede5',
-            'Bay': '#7fbde1',
-            'Flowy Emerald': '#50c878',
-            'Silky Black': '#1a1a1a',
-            'Silver': '#c0c0c0',
-            'Black': '#000000',
-            'Midnight Blue': '#191970',
-            'Light Wash': '#add8e6',
-            'Dark Wash': '#00008b'
+            // Titanium / Apple
+            'Natural Titanium': '#a8a8a8',
+            'Blue Titanium': '#3a6ea8',
+            'White Titanium': '#e8e8e8',
+            'Black Titanium': '#1a1a1a',
+            // Samsung
+            'Titanium Gray': '#7a7a7a',
+            'Titanium Black': '#111111',
+            'Titanium Violet': '#5b3fa6',
+            'Titanium Yellow': '#c8a600',
+            // Pixel
+            'Obsidian': '#1e1e1e',
+            'Porcelain': '#e5e0d8',
+            'Bay': '#5596c8',
+            'Charcoal': '#2e2e2e',
+            'Sea': '#2a8fa0',
+            'Aloe': '#5a8c5a',
+            // OnePlus
+            'Flowy Emerald': '#1a7a48',
+            'Silky Black': '#111111',
+            // Motorola
+            'Luxe Lavender': '#9b7cbf',
+            'Moonlight Pearl': '#d8d0c8',
+            'Black Beauty': '#111111',
+            'Blue': '#1a5fb4',
+            'Green': '#2e7d32',
+            'Yellow': '#c8a600',
+            'Pink': '#e91e8c',
+            // Generic
+            'Silver': '#b8b8b8',
+            'Black': '#111111',
+            'White': '#e8e8e8',
+            'Midnight Blue': '#0d2060',
+            'Graphite': '#4a4a4a',
+            'Pale Gray': '#c0c0c0',
+            'Red': '#c62828',
+            'Navy': '#1a237e',
+            'Gray': '#757575',
+            // Denim
+            'Light Wash': '#90caf9',
+            'Dark Wash': '#1565c0',
+            'Original Indigo': '#303f9f',
+            'Black Denim': '#111111',
+            'Original Blue': '#1565c0',
+            // Footwear
+            'Blue/Orange': '#e65100',
+            'Black/White': '#333333',
+            // Fashion
+            'Floral Pink': '#e91e8c',
+            'Floral Blue': '#1565c0',
+            'Floral White': '#e8e8e8',
         };
-        return colorMap[colorName] || colorName.toLowerCase().replace(' ', '');
+        return colorMap[colorName] || '#888888';
     };
 
     // Calculate dynamic CSS filter for specific products to simulate perfect color-variants
@@ -196,7 +244,6 @@ const ProductDetails = () => {
                             src={currentImages[selectedImageIndex] || image}
                             alt={`${name} - View ${selectedImageIndex + 1}`}
                             className="main-image"
-                            style={getImageStyle()}
                             onError={(e) => {
                                 e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZWVlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIzMCI+Tm8gSW1hZ2U8L3RleHQ+PC9zdmc+';
                             }}

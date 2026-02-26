@@ -7,18 +7,27 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.join(__dirname, '.env') });
 
-const uri = process.env.MONGODB_URI || "mongodb+srv://trivenis:triveni1234@firstmart.w1v5u.mongodb.net/firstmart?retryWrites=true&w=majority&appName=FIRSTMART";
-
 async function resetDB() {
+    // If running in development with in-memory DB, we mostly care about the live API
+    // but the server itself manages the DB. We'll use the API if possible or direct DB access.
+    const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/first-mart";
+    const client = new MongoClient(uri);
+
     try {
-        const client = new MongoClient(uri);
         await client.connect();
-        const db = client.db('firstmart');
-        const result = await db.collection('products').deleteMany({});
-        console.log(`Deleted ${result.deletedCount} products. Collection is now empty.`);
+        console.log("Connected to MongoDB for reset...");
+        const db = client.db();
+        const collection = db.collection('products');
+
+        const result = await collection.deleteMany({});
+        console.log(`✅ Deleted ${result.deletedCount} products from database.`);
+
+        // Also categories if needed, but products is the main one
+    } catch (err) {
+        console.error("Reset Error:", err.message);
+    } finally {
         await client.close();
-    } catch (e) {
-        console.error(e);
     }
 }
+
 resetDB();

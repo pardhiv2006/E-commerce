@@ -14,33 +14,24 @@ export const products = [
         name: 'iPhone 15 Pro Max',
         price: 1199.00,
         category: 'Mobiles',
-        image: '/images/iphone_natural_titanium_clean_1771847498961.png',
+        image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg',
+        images: [
+            'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg',
+            'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&q=80&w=600'
+        ],
+        colorImages: {
+            'Natural Titanium': 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg',
+            'Blue Titanium': 'https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-15-pro-max-blue-titanium-0.jpg',
+            'White Titanium': 'https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-15-pro-max-white-titanium-0.jpg',
+            'Black Titanium': 'https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-15-pro-max-black-titanium-0.jpg'
+        },
         description: 'Titanium design, A17 Pro chip, and the most powerful camera system ever in an iPhone.',
         options: {
             storage: ['128GB', '256GB', '512GB', '1TB'],
             colors: ['Natural Titanium', 'Blue Titanium', 'White Titanium', 'Black Titanium']
         },
-        colorImages: {
-            'Natural Titanium': [
-                '/images/iphone_natural_titanium_clean_1771847498961.png'
-            ],
-            'Blue Titanium': [
-                '/images/iphone_blue_titanium_clean_1771847527895.png'
-            ],
-            'White Titanium': [
-                '/images/iphone_white_titanium_clean_1771847542906.png'
-            ],
-            'Black Titanium': [
-                '/images/iphone_black_titanium_clean_1771847566096.png'
-            ]
-        },
         variantPricing: {
-            storage: {
-                '128GB': 0,
-                '256GB': 100,
-                '512GB': 300,
-                '1TB': 500
-            }
+            storage: { '128GB': 0, '256GB': 100, '512GB': 200, '1TB': 400 }
         }
     },
     {
@@ -48,18 +39,24 @@ export const products = [
         name: 'Samsung Galaxy S24 Ultra',
         price: 1299.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1610940882244-5966236ca446?w=800&q=80',
+        image: '/images/samsung-galaxy-s24-ultra.png',
+        images: [
+            '/images/samsung-galaxy-s24-ultra.png',
+            'https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s24-ultra-5g-0.jpg'
+        ],
+        colorImages: {
+            'Titanium Gray': '/images/samsung-galaxy-s24-ultra.png',
+            'Titanium Black': '/images/samsung-galaxy-s24-ultra.png',
+            'Titanium Violet': '/images/samsung-galaxy-s24-ultra.png',
+            'Titanium Yellow': '/images/samsung-galaxy-s24-ultra.png'
+        },
         description: 'The ultimate Galaxy Ultra. With Galaxy AI, a 200MP camera, and built-in S Pen.',
         options: {
             storage: ['256GB', '512GB', '1TB'],
             colors: ['Titanium Gray', 'Titanium Black', 'Titanium Violet', 'Titanium Yellow']
         },
         variantPricing: {
-            storage: {
-                '256GB': 0,
-                '512GB': 200,
-                '1TB': 450
-            }
+            storage: { '256GB': 0, '512GB': 150, '1TB': 350 }
         }
     },
     {
@@ -67,11 +64,19 @@ export const products = [
         name: 'Google Pixel 8 Pro',
         price: 999.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=600',
-        description: 'The all-pro phone engineered by Google. It’s sleek, sophisticated, and incredibly helpful.',
+        image: 'https://fdn2.gsmarena.com/vv/bigpic/google-pixel-8-pro.jpg',
+        colorImages: {
+            'Obsidian': 'https://fdn2.gsmarena.com/vv/pics/google/google-pixel-8-pro-obsidian-0.jpg',
+            'Porcelain': 'https://fdn2.gsmarena.com/vv/pics/google/google-pixel-8-pro-porcelain-0.jpg',
+            'Bay': 'https://fdn2.gsmarena.com/vv/pics/google/google-pixel-8-pro-bay-0.jpg'
+        },
+        description: 'The all-pro phone engineered by Google. It\'s sleek, sophisticated, and incredibly helpful.',
         options: {
             storage: ['128GB', '256GB', '512GB'],
             colors: ['Obsidian', 'Porcelain', 'Bay']
+        },
+        variantPricing: {
+            storage: { '128GB': 0, '256GB': 100, '512GB': 200 }
         }
     },
     {
@@ -79,37 +84,106 @@ export const products = [
         name: 'OnePlus 12',
         price: 799.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1621330396173-e41b1cafd17f?w=800&q=80',
+        image: 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-12.jpg',
+        colorImages: {
+            'Flowy Emerald': 'https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-12-green-0.jpg',
+            'Silky Black': 'https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-12-black-0.jpg'
+        },
         description: 'Elite Performance. Pro-level Hasselblad Camera for Mobile. Smooth Beyond Belief.',
         options: {
             storage: ['128GB', '256GB'],
             colors: ['Flowy Emerald', 'Silky Black']
+        },
+        variantPricing: {
+            storage: { '128GB': 0, '256GB': 100 }
         }
     },
 
     {
-        id: 34,
-        name: 'Motorola Edge 50 Pro',
-        price: 450.00,
+        id: 32,
+        name: 'Xiaomi 14 Ultra',
+        price: 999.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1605170439002-90f450c99b2b?w=800&q=80',
-        description: 'Intelligence meets art. World first AI powered pro-grade camera.'
+        image: 'https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-ultra.jpg',
+        colorImages: {
+            'Black': 'https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-ultra-black-0.jpg',
+            'White': 'https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-ultra-white-0.jpg',
+            'Blue': 'https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-ultra-blue-0.jpg'
+        },
+        description: 'Leica Optics, Snapdragon 8 Gen 3, and a stunning 2K AMOLED display.',
+        options: {
+            storage: ['256GB', '512GB'],
+            colors: ['Black', 'White', 'Blue']
+        },
+        variantPricing: {
+            storage: { '256GB': 0, '512GB': 150 }
+        }
     },
+    {
+        id: 33,
+        name: 'Google Pixel 8a',
+        price: 499.00,
+        category: 'Mobiles',
+        image: 'https://fdn2.gsmarena.com/vv/bigpic/google-pixel-8a.jpg',
+        description: 'Meet Pixel 8a, the helpful Google phone with the dual camera system.',
+        options: {
+            storage: ['128GB', '256GB'],
+            colors: ['Charcoal', 'Porcelain', 'Bay', 'Aloe']
+        },
+        variantPricing: {
+            storage: { '128GB': 0, '256GB': 60 }
+        }
+    },
+    {
+        id: 35,
+        name: 'Samsung Galaxy A55 5G',
+        price: 449.00,
+        category: 'Mobiles',
+        image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a55.jpg',
+        colorImages: {
+            'Awesome Lilac': 'https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a55-lilac-0.jpg',
+            'Awesome Iceblue': 'https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a55-iceblue-0.jpg',
+            'Awesome Navy': 'https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a55-navy-0.jpg'
+        },
+        description: 'Epic camera, immersive display, and outstanding battery life at an incredible value.',
+        options: {
+            storage: ['128GB', '256GB'],
+            colors: ['Awesome Lilac', 'Awesome Iceblue', 'Awesome Navy']
+        },
+        variantPricing: {
+            storage: { '128GB': 0, '256GB': 60 }
+        }
+    },
+
     {
         id: 37,
         name: 'Sony Xperia 1 VI',
         price: 1399.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600',
-        description: 'The ultimate photographer’s phone with continuous optical zoom.'
+        image: 'https://fdn2.gsmarena.com/vv/bigpic/sony-xperia-1-vi.jpg',
+        description: 'The ultimate photographer’s phone with continuous optical zoom.',
+        options: {
+            storage: ['256GB', '512GB'],
+            colors: ['Black', 'Platinum Silver', 'Khaki Green']
+        },
+        variantPricing: {
+            storage: { '256GB': 0, '512GB': 150 }
+        }
     },
     {
         id: 38,
         name: 'Asus Zenfone 11 Ultra',
         price: 899.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1512499617640-c74ae3a49dd5?auto=format&fit=crop&q=80&w=600',
-        description: 'Go big with Zenfone 11 Ultra. Powerful performance in a large-scale design.'
+        image: 'https://fdn2.gsmarena.com/vv/bigpic/asus-zenfone-11-ultra.jpg',
+        description: 'Go big with Zenfone 11 Ultra. Powerful performance in a large-scale design.',
+        options: {
+            storage: ['256GB', '512GB'],
+            colors: ['Black', 'Silver']
+        },
+        variantPricing: {
+            storage: { '256GB': 0, '512GB': 100 }
+        }
     },
 
     // Electronics
@@ -118,21 +192,10 @@ export const products = [
         name: 'Sony WH-1000XM5 Headphones',
         price: 349.00,
         category: 'Electronics',
-        image: '/images/sony_black_clean_1771847608171.png',
+        image: 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&q=80&w=600',
         description: 'Industry-leading noise cancellation, crystal clear hands-free calling, and 30-hour battery life.',
         options: {
             colors: ['Silver', 'Black', 'Midnight Blue']
-        },
-        colorImages: {
-            'Silver': [
-                '/images/sony_silver_clean_1771847590469.png'
-            ],
-            'Black': [
-                '/images/sony_black_clean_1771847608171.png'
-            ],
-            'Midnight Blue': [
-                'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600'
-            ]
         }
     },
 
@@ -150,8 +213,11 @@ export const products = [
         name: 'Bose QuietComfort Ultra',
         price: 429.00,
         category: 'Electronics',
-        image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600',
-        description: 'World-class noise cancellation, spatial audio, and premium comfort.'
+        image: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&q=80&w=600',
+        description: 'World-class noise cancellation, spatial audio, and premium comfort.',
+        options: {
+            colors: ['Silver', 'Black', 'Midnight Blue']
+        }
     },
 
     {
@@ -160,7 +226,13 @@ export const products = [
         price: 99.00,
         category: 'Electronics',
         image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&q=80&w=600',
-        description: 'An icon remastered. Precision, silence, and flow with advanced darkfield tracking.'
+        description: 'An icon remastered. Precision, silence, and flow with advanced darkfield tracking.',
+        options: {
+            colors: ['Graphite', 'Pale Gray', 'White']
+        },
+        variantPricing: {
+            colors: { 'Graphite': 0, 'Pale Gray': 5, 'White': 10 }
+        }
     },
     {
         id: 42,
@@ -168,7 +240,13 @@ export const products = [
         price: 899.00,
         category: 'Electronics',
         image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&q=80&w=600',
-        description: 'Exceptional visual experience with the world’s first 6K monitor with IPS Black technology.'
+        description: 'Exceptional visual experience with the world’s first 6K monitor with IPS Black technology.',
+        options: {
+            colors: ['Black', 'Silver']
+        },
+        variantPricing: {
+            colors: { 'Black': 0, 'Silver': 50 }
+        }
     },
 
     {
@@ -177,7 +255,10 @@ export const products = [
         price: 759.00,
         category: 'Electronics',
         image: 'https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?auto=format&fit=crop&q=80&w=600',
-        description: 'Advanced mini drone with 4K HDR video and Omni-directional Obstacle Sensing.'
+        description: 'Advanced mini drone with 4K HDR video and Omni-directional Obstacle Sensing.',
+        options: {
+            colors: ['Gray']
+        }
     },
     {
         id: 45,
@@ -185,14 +266,17 @@ export const products = [
         price: 2499.00,
         category: 'Electronics',
         image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=600',
-        description: 'The hybrid hero. Full-frame 33MP sensor for stunning photos and 4K 60p video.'
+        description: 'The hybrid hero. Full-frame 33MP sensor for stunning photos and 4K 60p video.',
+        options: {
+            colors: ['Black']
+        }
     },
     {
         id: 46,
         name: 'Keychron Q1 Max',
         price: 189.00,
         category: 'Electronics',
-        image: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1541140532154-b024d705b90a?auto=format&fit=crop&q=80&w=600',
         description: 'Premium custom mechanical keyboard for the ultimate typing experience.'
     },
 
@@ -202,55 +286,49 @@ export const products = [
         name: 'Levi\'s Denim Jacket',
         price: 89.50,
         category: 'Fashion',
-        image: 'https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&q=80&w=600',
-        description: 'Classic denim jacket that gets better with time. Versatile and durable.',
+        image: 'https://images.unsplash.com/photo-1578932750294-f5075e85f44a?auto=format&fit=crop&q=80&w=600',
+        description: 'The original jean jacket since 1967. A blank canvas for self-expression.',
         options: {
             sizes: ['S', 'M', 'L', 'XL', 'XXL'],
-            colors: ['Original Indigo', 'Black Denim', 'Light Wash']
+            colors: ['Light Wash', 'Dark Wash', 'Black']
         },
-        colorImages: {
-            'Original Indigo': [
-                'https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Black Denim': [
-                'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Light Wash': [
-                'https://images.unsplash.com/photo-1520975661595-6453be3f7070?auto=format&fit=crop&q=80&w=600'
-            ]
+        variantPricing: {
+            sizes: { 'S': 0, 'M': 0, 'L': 0, 'XL': 5, 'XXL': 10 },
+            colors: { 'Light Wash': 0, 'Dark Wash': 5, 'Black': 10 }
         }
     },
 
-    {
-        id: 18,
-        name: 'Nike Sportswear Tech Fleece',
-        price: 120.00,
-        category: 'Fashion',
-        image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&q=80&w=600',
-        description: 'Lightweight warmth. Sleek design. Perfect for everyday wear.'
-    },
-    {
-        id: 19,
-        name: 'H&M Linen Shirt',
-        price: 29.99,
-        category: 'Fashion',
-        image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&q=80&w=600',
-        description: 'Breathable linen shirt for hot summer days. Available in multiple colors.'
-    },
+
     {
         id: 47,
         name: 'Adidas Essentials Tracksuit',
         price: 75.00,
         category: 'Fashion',
-        image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&q=80&w=600',
         description: 'Classic sporty style, comfortable for both workouts and relaxing.'
+    },
+    {
+        id: 18,
+        name: 'Nike Sportswear Tech Fleece',
+        price: 130.00,
+        category: 'Fashion',
+        image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&q=80&w=600',
+        description: 'Innovative fleece fabric provides lightweight warmth and comfort.'
+    },
+    {
+        id: 19,
+        name: 'H&M Linen Shirt',
+        price: 34.99,
+        category: 'Fashion',
+        image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&q=80&w=600',
+        description: 'Breathable linen blend shirt, perfect for warm weather style.'
     },
     {
         id: 48,
         name: 'Ralph Lauren Polo Shirt',
         price: 95.00,
         category: 'Fashion',
-        image: 'https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?auto=format&fit=crop&q=80&w=600',
         description: 'The iconic Polo shirt, a staple of modern style since 1972.'
     },
     {
@@ -259,23 +337,45 @@ export const products = [
         price: 110.00,
         category: 'Fashion',
         image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&q=80&w=600',
-        description: 'Timeless slim fit jeans with a hint of stretch for comfort.'
+        description: 'Timeless slim fit jeans with a hint of stretch for comfort.',
+        options: {
+            sizes: ['28', '30', '32', '34', '36'],
+            colors: ['Blue', 'Black', 'Gray']
+        },
+        variantPricing: {
+            colors: { 'Blue': 0, 'Black': 5, 'Gray': 5 }
+        }
     },
     {
         id: 50,
         name: 'Mango Floral Midi Dress',
         price: 69.99,
         category: 'Fashion',
-        image: 'https://images.unsplash.com/photo-1572804013307-59c85b3eb6d7?auto=format&fit=crop&q=80&w=600',
-        description: 'Elegant floral print dress, perfect for spring and summer outings.'
+        image: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&q=80&w=600',
+        description: 'Elegant floral print dress, perfect for spring and summer outings.',
+        options: {
+            sizes: ['S', 'M', 'L', 'XL'],
+            colors: ['Floral Pink', 'Floral Blue', 'Floral White']
+        },
+        variantPricing: {
+            colors: { 'Floral Pink': 0, 'Floral Blue': 5, 'Floral White': 10 }
+        }
     },
     {
-        id: 51,
+        id: 42,
         name: 'The North Face Rain Jacket',
         price: 150.00,
         category: 'Fashion',
-        image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=600',
-        description: 'Waterproof and breathable jacket for maximum outdoor protection.'
+        image: 'https://images.unsplash.com/photo-1617952236317-0bd127407984?auto=format&fit=crop&q=80&w=600',
+        description: 'Waterproof and breathable jacket, perfect for outdoor adventures.',
+        options: {
+            sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+            colors: ['Black', 'Navy', 'Red', 'Green']
+        },
+        variantPricing: {
+            sizes: { 'S': 0, 'M': 0, 'L': 0, 'XL': 10, 'XXL': 15 },
+            colors: { 'Black': 0, 'Navy': 5, 'Red': 10, 'Green': 10 }
+        }
     },
     {
         id: 78,
@@ -283,7 +383,14 @@ export const products = [
         price: 89.00,
         category: 'Fashion',
         image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&q=80&w=600',
-        description: 'The blueprint for every pair of jeans in existence.'
+        description: 'The blueprint for every pair of jeans in existence.',
+        options: {
+            sizes: ['28', '30', '32', '34', '36', '38'],
+            colors: ['Original Blue', 'Black', 'Light Wash']
+        },
+        variantPricing: {
+            colors: { 'Original Blue': 0, 'Black': 5, 'Light Wash': 5 }
+        }
     },
 
 
@@ -306,7 +413,14 @@ export const products = [
         price: 190.00,
         category: 'Footwear',
         image: 'https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?auto=format&fit=crop&q=80&w=600',
-        description: 'Lighter than ever. Boost your run with incredible energy return.'
+        description: 'Lighter than ever. Boost your run with incredible energy return.',
+        options: {
+            sizes: ['UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11'],
+            colors: ['Black', 'White', 'Gray']
+        },
+        variantPricing: {
+            colors: { 'Black': 0, 'White': 5, 'Gray': 5 }
+        }
     },
     {
         id: 20,
@@ -314,7 +428,14 @@ export const products = [
         price: 60.00,
         category: 'Footwear',
         image: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&q=80&w=600',
-        description: 'The definitive classic. Canvas upper, rubber sole, and timeless style.'
+        description: 'The definitive classic. Canvas upper, rubber sole, and timeless style.',
+        options: {
+            sizes: ['UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11'],
+            colors: ['Black', 'White', 'Red', 'Navy']
+        },
+        variantPricing: {
+            colors: { 'Black': 0, 'White': 0, 'Red': 5, 'Navy': 5 }
+        }
     },
     {
         id: 52,
@@ -322,39 +443,76 @@ export const products = [
         price: 90.00,
         category: 'Footwear',
         image: 'https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&q=80&w=600',
-        description: 'The most iconic New Balance shoe. Classic design and premium comfort.'
+        description: 'The most iconic New Balance shoe. Classic design and premium comfort.',
+        options: {
+            sizes: ['UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11'],
+            colors: ['Gray', 'Navy', 'Black']
+        },
+        variantPricing: {
+            colors: { 'Gray': 0, 'Navy': 5, 'Black': 5 }
+        }
     },
     {
         id: 53,
         name: 'Vans Old Skool',
         price: 70.00,
         category: 'Footwear',
-        image: 'https://images.unsplash.com/photo-1525966222134-fcfa99bcf26a?auto=format&fit=crop&q=80&w=600',
-        description: 'The classic skate shoe and the first to bare the iconic side stripe.'
+        image: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&q=80&w=600',
+        description: 'The classic skate shoe and the first to bare the iconic side stripe.',
+        options: {
+            sizes: ['UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11'],
+            colors: ['Black/White', 'Navy', 'Red']
+        },
+        variantPricing: {
+            colors: { 'Black/White': 0, 'Navy': 5, 'Red': 5 }
+        }
     },
+
     {
         id: 55,
         name: 'Birkenstock Arizona Sandals',
         price: 110.00,
         category: 'Footwear',
-        image: 'https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&q=80&w=600',
-        description: 'The legendary two-strap sandal with the anatomically shaped footbed.'
+        image: 'https://images.unsplash.com/photo-1556804335-2fa563e93aae?auto=format&fit=crop&q=80&w=600',
+        description: 'The legendary two-strap sandal with the anatomically shaped footbed.',
+        options: {
+            sizes: ['UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11'],
+            colors: ['Brown', 'Black', 'White']
+        },
+        variantPricing: {
+            colors: { 'Brown': 0, 'Black': 5, 'White': 5 }
+        }
     },
+
     {
         id: 57,
         name: 'Timberland 6-Inch Premium Boot',
         price: 198.00,
         category: 'Footwear',
-        image: 'https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&q=80&w=600',
-        description: 'The original waterproof boot. Rugged, durable, and unmistakably Timberland.'
+        image: 'https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=80&w=600',
+        description: 'The original waterproof boot. Rugged, durable, and unmistakably Timberland.',
+        options: {
+            sizes: ['UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11'],
+            colors: ['Wheat', 'Black', 'Brown']
+        },
+        variantPricing: {
+            colors: { 'Wheat': 0, 'Black': 10, 'Brown': 10 }
+        }
     },
     {
-        id: 80,
+        id: 58,
         name: 'Asics Gel-Kayano 30',
         price: 160.00,
         category: 'Footwear',
-        image: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&q=80&w=600',
-        description: 'Advanced stability and comfort for long-distance running.'
+        image: 'https://images.unsplash.com/photo-1605348532760-6753d2c43329?auto=format&fit=crop&q=80&w=600',
+        description: 'Legendary stability and comfort for long-distance running.',
+        options: {
+            sizes: ['UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11'],
+            colors: ['Black/White', 'Triple White', 'Navy/Red']
+        },
+        variantPricing: {
+            colors: { 'Black/White': 0, 'Triple White': 10, 'Navy/Red': 15 }
+        }
     },
 
     // Grocery
@@ -363,18 +521,10 @@ export const products = [
         name: 'Cold Pressed Olive Oil (1L)',
         price: 24.50,
         category: 'Grocery',
-        image: 'https://images.unsplash.com/photo-1474979266404-7eaacabc87c5?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&q=80&w=600',
         description: 'Extra virgin olive oil. Heart-healthy and delicious.',
         options: {
-            weight: ['500ml', '1L', '2L', '5L']
-        },
-        variantPricing: {
-            weight: {
-                '500ml': 0,
-                '1L': 12.00,
-                '2L': 30.00,
-                '5L': 70.00
-            }
+            quantity: ['500ml', '1L', '2L', '5L']
         }
     },
     {
@@ -386,13 +536,6 @@ export const products = [
         description: 'Rich, smooth, and aromatic coffee beans.',
         options: {
             weight: ['250g', '500g', '1kg']
-        },
-        variantPricing: {
-            weight: {
-                '250g': 0,
-                '500g': 15.00,
-                '1kg': 35.00
-            }
         }
     },
     {
@@ -400,17 +543,13 @@ export const products = [
         name: 'Organic Honey (500g)',
         price: 12.00,
         category: 'Grocery',
-        image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=800&q=80',
-        description: 'Pure, organic wildflower honey, ethically sourced.',
+        image: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&q=80&w=600',
+        description: 'Pure, raw organic honey. Great as a natural sweetener.',
         options: {
             weight: ['250g', '500g', '1kg']
         },
         variantPricing: {
-            weight: {
-                '250g': 0,
-                '500g': 10.00,
-                '1kg': 25.00
-            }
+            weight: { '250g': 0, '500g': 5, '1kg': 10 }
         }
     },
     {
@@ -418,32 +557,32 @@ export const products = [
         name: 'Quinoa Organic (1kg)',
         price: 15.00,
         category: 'Grocery',
-        image: 'https://images.unsplash.com/photo-1612531383344-77e8a93910c5?w=800&q=80',
-        description: 'Highly nutritious, organic white quinoa grains.'
+        image: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&q=80&w=600',
+        description: 'High-protein grain. Perfect for salads and healthy side dishes.'
     },
     {
         id: 59,
         name: 'Almond Butter (340g)',
         price: 14.00,
         category: 'Grocery',
-        image: 'https://images.unsplash.com/photo-1590301157890-4810ed352733?w=800&q=80',
-        description: 'Creamy, roasted almond butter, made with 100% natural ingredients.'
+        image: 'https://images.unsplash.com/photo-1614735241165-6756e1df61ab?auto=format&fit=crop&q=80&w=600',
+        description: 'Creamy and nutritious almond butter with no added sugar.'
     },
     {
         id: 60,
         name: 'Green Tea Matcha (100g)',
         price: 22.00,
         category: 'Grocery',
-        image: 'https://images.unsplash.com/photo-1582793988951-9aed5509eb97?w=800&q=80',
-        description: 'Premium ceremonial grade Japanese matcha powder.'
+        image: 'https://images.unsplash.com/photo-1582793988951-9aed5509eb97?auto=format&fit=crop&q=80&w=600',
+        description: 'Premium grade ceremonial matcha powder for traditional tea or lattes.'
     },
     {
         id: 61,
         name: 'Himalayan Pink Salt (500g)',
         price: 8.50,
         category: 'Grocery',
-        image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=800&q=80',
-        description: 'Pure, mineral-rich Himalayan pink salt crystals.'
+        image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=600',
+        description: 'Pure and mineral-rich pink salt for healthy seasoning.'
     },
 
 
@@ -453,66 +592,92 @@ export const products = [
     {
         id: 22,
         name: 'LG 260L Frost Free Refrigerator',
-        price: 499.00,
+        price: 450.00,
         category: 'Appliances',
-        image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80',
-        description: 'Spacious and energy-efficient double door refrigerator.'
+        image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=600',
+        description: 'Smart inverter compressor for energy saving and silent operation.'
     },
+
+
     {
         id: 24,
         name: 'Midea 1.5 Ton Split AC',
         price: 399.00,
         category: 'Appliances',
-        image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80',
-        description: 'Powerful cooling with smart inverter technology and energy saving mode.'
+        image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&q=80&w=600',
+        images: [
+            'https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&q=80&w=600',
+            'https://images.unsplash.com/photo-1619478963499-6475f49fe6de?auto=format&fit=crop&q=80&w=600',
+            'https://images.unsplash.com/photo-1558618048-fd0bfb6c280c?auto=format&fit=crop&q=80&w=600'
+        ],
+        description: 'High energy efficiency, silent operation, and rapid cooling.'
     },
     {
         id: 64,
         name: 'Panasonic Microwave Oven',
         price: 180.00,
         category: 'Appliances',
-        image: 'https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=800&q=80',
-        description: 'Versatile convection microwave for baking, grilling, and reheating.'
+        image: 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&q=80&w=600',
+        images: [
+            'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&q=80&w=600',
+            'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&q=80&w=600',
+            'https://images.unsplash.com/photo-1584568694244-14fbcee8ebc9?auto=format&fit=crop&q=80&w=600'
+        ],
+        description: 'Quick and even cooking with inverter technology.'
     },
     {
         id: 65,
         name: 'Dyson V15 Detect Vacuum',
         price: 749.00,
         category: 'Appliances',
-        image: 'https://images.unsplash.com/photo-1558317374-067fb5f30001?w=800&q=80',
-        description: 'Most powerful, intelligent cordless vacuum with laser illumination.'
+        image: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80&w=600',
+        description: 'The most powerful, intelligent cordless vacuum with laser illumination.'
     },
     {
         id: 66,
         name: 'Breville Barista Pro',
         price: 849.00,
         category: 'Appliances',
-        image: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=800&q=80',
-        description: 'Barista-quality performance with a new intuitive interface.'
+        image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=600',
+        images: [
+            'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=600',
+            'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=600',
+            'https://images.unsplash.com/photo-1458684430571-9d5c3df75b5b?auto=format&fit=crop&q=80&w=600'
+        ],
+        description: 'Create third wave specialty coffee at home from bean to espresso.'
     },
+
     {
         id: 68,
         name: 'iRobot Roomba j7+',
         price: 799.00,
         category: 'Appliances',
-        image: 'https://images.unsplash.com/photo-1518314916381-77a37c2a49ae?w=800&q=80',
-        description: 'Smart robotic vacuum with obstacle avoidance and clean base.'
+        image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=600',
+        images: [
+            'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=600',
+            'https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?auto=format&fit=crop&q=80&w=600'
+        ],
+        description: 'Intelligent robot vacuum that avoids pet waste and cords.'
     },
     {
         id: 82,
         name: 'Philips Air Purifier 2000i',
         price: 299.00,
         category: 'Appliances',
-        image: 'https://images.unsplash.com/photo-1585771724684-2428f9a60ca2?w=800&q=80',
-        description: 'Advanced air purification with real-time feedback and smart app control.'
+        image: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af?auto=format&fit=crop&q=80&w=600',
+        images: [
+            'https://images.unsplash.com/photo-1567306301408-9b74779a11af?auto=format&fit=crop&q=80&w=600',
+            'https://images.unsplash.com/photo-1583394293214-ce4c84b1c00d?auto=format&fit=crop&q=80&w=600'
+        ],
+        description: 'Removes 99.97% of allergens and pollutants from your home.'
     },
     {
         id: 83,
         name: 'Instant Pot Pro 10-in-1',
         price: 149.00,
         category: 'Appliances',
-        image: 'https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=800&q=80',
-        description: 'Multi-functional pressure cooker for faster, healthier meals.'
+        image: 'https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?auto=format&fit=crop&q=80&w=600',
+        description: 'The next generation of the best-selling multi-cooker.'
     },
 
     // Home Decor
@@ -532,8 +697,6 @@ export const products = [
         image: 'https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&q=80&w=600',
         description: 'Large-scale abstract painting with vibrant colors and expressive brushwork.'
     },
-
-
     {
         id: 70,
         name: 'Ceramic Vase Set',
@@ -561,7 +724,7 @@ export const products = [
         name: 'LEGO Star Wars Millennium Falcon',
         price: 169.99,
         category: 'Beauty & Toys',
-        image: 'https://images.unsplash.com/photo-1585366119957-e556f403e4e7?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1586165368502-1bad197a6461?auto=format&fit=crop&q=80&w=600',
         description: 'Iconic Star Wars starship recreated with authentic details.'
     },
 
@@ -570,7 +733,7 @@ export const products = [
         name: 'Plush Teddy Bear',
         price: 25.00,
         category: 'Beauty & Toys',
-        image: 'https://images.unsplash.com/photo-1559440666-44b204e32087?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1591824438708-ce405f36ba3d?auto=format&fit=crop&q=80&w=600',
         description: 'Soft and cuddly teddy bear, perfect for kids and adults alike.'
     },
 
@@ -579,7 +742,7 @@ export const products = [
         name: 'LEGO Technic 4x4 Off-Roader',
         price: 249.99,
         category: 'Beauty & Toys',
-        image: 'https://images.unsplash.com/photo-1533558701576-23c65e42c2fb?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&q=80&w=600',
         description: 'Advanced LEGO Technic building set for realistic off-road play.'
     },
     {
@@ -587,7 +750,7 @@ export const products = [
         name: 'Dyson Airwrap Styler',
         price: 599.00,
         category: 'Beauty & Toys',
-        image: 'https://images.unsplash.com/photo-1647416390977-27088b90c7f0?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=600',
         description: 'Multi-styler to curl, shape, smooth, and hide flyaways with no extreme heat.'
     },
 
@@ -597,7 +760,7 @@ export const products = [
         name: 'Nintendo Switch OLED',
         price: 349.99,
         category: 'Beauty & Toys',
-        image: 'https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?auto=format&fit=crop&q=80&w=600',
         description: 'The newest addition to the Nintendo Switch family, with a vibrant OLED screen.'
     },
     {
@@ -605,7 +768,7 @@ export const products = [
         name: 'Revlon One-Step Hair Dryer',
         price: 39.99,
         category: 'Beauty & Toys',
-        image: 'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&q=80&w=600',
-        description: 'A versatile hair styling tool that dries and volumizes in one step.'
+        image: 'https://images.unsplash.com/photo-1620331311520-246422fd82f9?auto=format&fit=crop&q=80&w=600',
+        description: 'Deliver gorgeous volume and brilliant shine in a single step.'
     },
 ];

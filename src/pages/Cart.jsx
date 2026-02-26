@@ -55,15 +55,11 @@ const Cart = () => {
 
     const handleCheckout = () => {
         if (!user) {
-            // Store current cart or state if needed, but for now just redirect
             navigate('/login');
             return;
         }
         if (cart.length === 0) return;
-        setTimeout(() => {
-            checkout(finalTotal, totalDiscount + couponDiscount);
-            navigate('/orders');
-        }, 1000);
+        navigate('/checkout');
     };
 
     if (cart.length === 0) {
@@ -128,7 +124,7 @@ const Cart = () => {
                         );
                     })}
                     <div className="place-order-container">
-                        <Button className="place-order-btn" onClick={handleCheckout}>PLACE ORDER</Button>
+                        <Button className="place-order-btn" onClick={handleCheckout}>PROCEED TO CHECKOUT</Button>
                     </div>
                 </div>
 

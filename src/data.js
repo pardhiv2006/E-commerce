@@ -4,6 +4,7 @@ export const coupons = [
     { code: 'FIRST10', discount: 0.10, description: '10% off your first order', minAmount: 0 },
     { code: 'SAVE20', discount: 0.20, description: 'Save 20% on orders over $100', minAmount: 100 },
     { code: 'MEGA30', discount: 0.30, description: 'Mega 30% discount on orders over $200', minAmount: 200 },
+    { code: 'GROCERY5', discount: 0.05, description: 'Extra 5% off on Groceries', minAmount: 50 },
 ];
 
 export const products = [
@@ -13,38 +14,16 @@ export const products = [
         name: 'iPhone 15 Pro Max',
         price: 1199.00,
         category: 'Mobiles',
-        image: '/images/iphone_natural_titanium_clean_1771847498961.png',
+        image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg',
         images: [
-            'https://images.unsplash.com/photo-1696446701796-da61225697cc?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1695653422715-991ec3a0db7a?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1592286927505-2fd0f3a9b3d2?auto=format&fit=crop&q=80&w=600'
+            'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg',
+            'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&q=80&w=600'
         ],
         colorImages: {
-            'Natural Titanium': [
-                'https://images.unsplash.com/photo-1696446701796-da61225697cc?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1695653422715-991ec3a0db7a?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1592286927505-2fd0f3a9b3d2?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Blue Titanium': [
-                'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&q=80&w=600'
-            ],
-            'White Titanium': [
-                'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1603891117606-65b1e5c76a98?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Black Titanium': [
-                'https://images.unsplash.com/photo-1611472173362-3f53dbd65d80?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&q=80&w=600'
-            ]
+            'Natural Titanium': 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg',
+            'Blue Titanium': 'https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-15-pro-max-blue-titanium-0.jpg',
+            'White Titanium': 'https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-15-pro-max-white-titanium-0.jpg',
+            'Black Titanium': 'https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-15-pro-max-black-titanium-0.jpg'
         },
         description: 'Titanium design, A17 Pro chip, and the most powerful camera system ever in an iPhone.',
         options: {
@@ -60,38 +39,16 @@ export const products = [
         name: 'Samsung Galaxy S24 Ultra',
         price: 1299.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1610940882244-5966236ca446?w=800&q=80',
+        image: '/images/samsung-galaxy-s24-ultra.png',
         images: [
-            'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1610945415295-d9baf165ce50?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600'
+            '/images/samsung-galaxy-s24-ultra.png',
+            'https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s24-ultra-5g-0.jpg'
         ],
         colorImages: {
-            'Titanium Gray': [
-                'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1610945415295-d9baf165ce50?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Titanium Black': [
-                'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1611472173362-3f53dbd65d80?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Titanium Violet': [
-                'https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Titanium Yellow': [
-                'https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1603891117606-65b1e5c76a98?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&q=80&w=600'
-            ]
+            'Titanium Gray': '/images/samsung-galaxy-s24-ultra.png',
+            'Titanium Black': '/images/samsung-galaxy-s24-ultra.png',
+            'Titanium Violet': '/images/samsung-galaxy-s24-ultra.png',
+            'Titanium Yellow': '/images/samsung-galaxy-s24-ultra.png'
         },
         description: 'The ultimate Galaxy Ultra. With Galaxy AI, a 200MP camera, and built-in S Pen.',
         options: {
@@ -107,32 +64,11 @@ export const products = [
         name: 'Google Pixel 8 Pro',
         price: 999.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=600',
-        images: [
-            'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600'
-        ],
+        image: 'https://fdn2.gsmarena.com/vv/bigpic/google-pixel-8-pro.jpg',
         colorImages: {
-            'Obsidian': [
-                'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1611472173362-3f53dbd65d80?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Porcelain': [
-                'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1603891117606-65b1e5c76a98?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Bay': [
-                'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&q=80&w=600'
-            ]
+            'Obsidian': 'https://fdn2.gsmarena.com/vv/pics/google/google-pixel-8-pro-obsidian-0.jpg',
+            'Porcelain': 'https://fdn2.gsmarena.com/vv/pics/google/google-pixel-8-pro-porcelain-0.jpg',
+            'Bay': 'https://fdn2.gsmarena.com/vv/pics/google/google-pixel-8-pro-bay-0.jpg'
         },
         description: 'The all-pro phone engineered by Google. It\'s sleek, sophisticated, and incredibly helpful.',
         options: {
@@ -148,26 +84,10 @@ export const products = [
         name: 'OnePlus 12',
         price: 799.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1621330396173-e41b1cafd17f?w=800&q=80',
-        images: [
-            'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600'
-        ],
+        image: 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-12.jpg',
         colorImages: {
-            'Flowy Emerald': [
-                'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Silky Black': [
-                'https://images.unsplash.com/photo-1611472173362-3f53dbd65d80?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&q=80&w=600'
-            ]
+            'Flowy Emerald': 'https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-12-green-0.jpg',
+            'Silky Black': 'https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-12-black-0.jpg'
         },
         description: 'Elite Performance. Pro-level Hasselblad Camera for Mobile. Smooth Beyond Belief.',
         options: {
@@ -184,32 +104,11 @@ export const products = [
         name: 'Xiaomi 14 Ultra',
         price: 999.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600',
-        images: [
-            'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600'
-        ],
+        image: 'https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-ultra.jpg',
         colorImages: {
-            'Black': [
-                'https://images.unsplash.com/photo-1611472173362-3f53dbd65d80?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&q=80&w=600'
-            ],
-            'White': [
-                'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1603891117606-65b1e5c76a98?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Blue': [
-                'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&q=80&w=600'
-            ]
+            'Black': 'https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-ultra-black-0.jpg',
+            'White': 'https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-ultra-white-0.jpg',
+            'Blue': 'https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-ultra-blue-0.jpg'
         },
         description: 'Leica Optics, Snapdragon 8 Gen 3, and a stunning 2K AMOLED display.',
         options: {
@@ -225,140 +124,34 @@ export const products = [
         name: 'Google Pixel 8a',
         price: 499.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&q=80',
-        images: [
-            'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600'
-        ],
-        colorImages: {
-            'Charcoal': [
-                'https://images.unsplash.com/photo-1611472173362-3f53dbd65d80?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Porcelain': [
-                'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1603891117606-65b1e5c76a98?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Sea': [
-                'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Aloe': [
-                'https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600'
-            ]
-        },
-        description: 'The most helpful Google phone yet, now at a more affordable price.',
+        image: 'https://fdn2.gsmarena.com/vv/bigpic/google-pixel-8a.jpg',
+        description: 'Meet Pixel 8a, the helpful Google phone with the dual camera system.',
         options: {
             storage: ['128GB', '256GB'],
-            colors: ['Charcoal', 'Porcelain', 'Sea', 'Aloe']
+            colors: ['Charcoal', 'Porcelain', 'Bay', 'Aloe']
         },
         variantPricing: {
             storage: { '128GB': 0, '256GB': 60 }
         }
     },
     {
-        id: 34,
-        name: 'Motorola Edge 50 Pro',
-        price: 450.00,
-        category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1605170439002-90f450c99b2b?w=800&q=80',
-        images: [
-            'https://images.unsplash.com/photo-1696446701796-da61225697cc?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1695653422715-991ec3a0db7a?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1592286927505-2fd0f3a9b3d2?auto=format&fit=crop&q=80&w=600'
-        ],
-        colorImages: {
-            'Black': [
-                'https://images.unsplash.com/photo-1611472173362-3f53dbd65d80?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Blue': [
-                'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Green': [
-                'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Yellow': [
-                'https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1603891117606-65b1e5c76a98?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Pink': [
-                'https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600'
-            ]
-        },
-        description: 'A huge screen, amazing camera, and incredible battery life.',
-        options: {
-            storage: ['128GB', '256GB', '512GB'],
-            colors: ['Black', 'Blue', 'Green', 'Yellow', 'Pink']
-        },
-        variantPricing: {
-            storage: { '128GB': 0, '256GB': 100, '512GB': 200 }
-        }
-    },
-    {
         id: 35,
-        name: 'Motorola Edge 50 Pro',
-        price: 599.00,
+        name: 'Samsung Galaxy A55 5G',
+        price: 449.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600',
-        images: [
-            'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600'
-        ],
+        image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a55.jpg',
         colorImages: {
-            'Luxe Lavender': [
-                'https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Moonlight Pearl': [
-                'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1603891117606-65b1e5c76a98?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Black Beauty': [
-                'https://images.unsplash.com/photo-1611472173362-3f53dbd65d80?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&q=80&w=600'
-            ]
+            'Awesome Lilac': 'https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a55-lilac-0.jpg',
+            'Awesome Iceblue': 'https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a55-iceblue-0.jpg',
+            'Awesome Navy': 'https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a55-navy-0.jpg'
         },
-        description: 'Curved display, 125W fast charging, and a versatile camera system.',
+        description: 'Epic camera, immersive display, and outstanding battery life at an incredible value.',
         options: {
             storage: ['128GB', '256GB'],
-            colors: ['Luxe Lavender', 'Moonlight Pearl', 'Black Beauty']
+            colors: ['Awesome Lilac', 'Awesome Iceblue', 'Awesome Navy']
         },
         variantPricing: {
-            storage: { '128GB': 0, '256GB': 80 }
+            storage: { '128GB': 0, '256GB': 60 }
         }
     },
 
@@ -367,7 +160,7 @@ export const products = [
         name: 'Sony Xperia 1 VI',
         price: 1399.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&q=80&w=600',
+        image: 'https://fdn2.gsmarena.com/vv/bigpic/sony-xperia-1-vi.jpg',
         description: 'The ultimate photographer’s phone with continuous optical zoom.',
         options: {
             storage: ['256GB', '512GB'],
@@ -382,27 +175,7 @@ export const products = [
         name: 'Asus Zenfone 11 Ultra',
         price: 899.00,
         category: 'Mobiles',
-        image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600',
-        images: [
-            'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1696446701796-da61225697cc?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1695653422715-991ec3a0db7a?auto=format&fit=crop&q=80&w=600'
-        ],
-        colorImages: {
-            'Black': [
-                'https://images.unsplash.com/photo-1611472173362-3f53dbd65d80?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Silver': [
-                'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1603891117606-65b1e5c76a98?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&q=80&w=600'
-            ]
-        },
+        image: 'https://fdn2.gsmarena.com/vv/bigpic/asus-zenfone-11-ultra.jpg',
         description: 'Go big with Zenfone 11 Ultra. Powerful performance in a large-scale design.',
         options: {
             storage: ['256GB', '512GB'],
@@ -420,32 +193,6 @@ export const products = [
         price: 349.00,
         category: 'Electronics',
         image: 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&q=80&w=600',
-        images: [
-            'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1487215078519-e21cc028cb29?auto=format&fit=crop&q=80&w=600'
-        ],
-        colorImages: {
-            'Silver': [
-                'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1487215078519-e21cc028cb29?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Black': [
-                'https://images.unsplash.com/photo-1487215078519-e21cc028cb29?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Midnight Blue': [
-                'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1487215078519-e21cc028cb29?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&q=80&w=600'
-            ]
-        },
         description: 'Industry-leading noise cancellation, crystal clear hands-free calling, and 30-hour battery life.',
         options: {
             colors: ['Silver', 'Black', 'Midnight Blue']
@@ -458,20 +205,6 @@ export const products = [
         price: 599.00,
         category: 'Electronics',
         image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=600',
-        images: [
-            'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1580836580312-94651dfd596d?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1559056199-641a0ac8b3f7?auto=format&fit=crop&q=80&w=600'
-        ],
-        colorImages: {
-            'Space Gray': [
-                'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1580836580312-94651dfd596d?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1559056199-641a0ac8b3f7?auto=format&fit=crop&q=80&w=600'
-            ]
-        },
         description: 'Light. Bright. Full of might. The iPad Air is available in five gorgeous colors.'
     },
 
@@ -480,27 +213,7 @@ export const products = [
         name: 'Bose QuietComfort Ultra',
         price: 429.00,
         category: 'Electronics',
-        image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600',
-        images: [
-            'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1487215078519-e21cc028cb29?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&q=80&w=600'
-        ],
-        colorImages: {
-            'Silver': [
-                'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1487215078519-e21cc028cb29?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Black': [
-                'https://images.unsplash.com/photo-1487215078519-e21cc028cb29?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&q=80&w=600'
-            ]
-        },
+        image: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&q=80&w=600',
         description: 'World-class noise cancellation, spatial audio, and premium comfort.',
         options: {
             colors: ['Silver', 'Black', 'Midnight Blue']
@@ -513,12 +226,6 @@ export const products = [
         price: 99.00,
         category: 'Electronics',
         image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&q=80&w=600',
-        images: [
-            'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1531492746076-161ca9bcad58?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1552820728-8ac41f1ce891?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&q=80&w=600'
-        ],
         description: 'An icon remastered. Precision, silence, and flow with advanced darkfield tracking.',
         options: {
             colors: ['Graphite', 'Pale Gray', 'White']
@@ -569,13 +276,7 @@ export const products = [
         name: 'Keychron Q1 Max',
         price: 189.00,
         category: 'Electronics',
-        image: 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?auto=format&fit=crop&q=80&w=600',
-        images: [
-            'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1587829191301-4c47c4c5e2e3?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1578302413192-94d440642117?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1594705691473-8c7b37b5b1e0?auto=format&fit=crop&q=80&w=600'
-        ],
+        image: 'https://images.unsplash.com/photo-1541140532154-b024d705b90a?auto=format&fit=crop&q=80&w=600',
         description: 'Premium custom mechanical keyboard for the ultimate typing experience.'
     },
 
@@ -586,32 +287,6 @@ export const products = [
         price: 89.50,
         category: 'Fashion',
         image: 'https://images.unsplash.com/photo-1578932750294-f5075e85f44a?auto=format&fit=crop&q=80&w=600',
-        images: [
-            'https://images.unsplash.com/photo-1578932750294-f5075e85f44a?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1543076659-9380cdf10613?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&q=80&w=600'
-        ],
-        colorImages: {
-            'Light Wash': [
-                'https://images.unsplash.com/photo-1578932750294-f5075e85f44a?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1543076659-9380cdf10613?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Dark Wash': [
-                'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Black': [
-                'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&q=80&w=600'
-            ]
-        },
         description: 'The original jean jacket since 1967. A blank canvas for self-expression.',
         options: {
             sizes: ['S', 'M', 'L', 'XL', 'XXL'],
@@ -629,15 +304,31 @@ export const products = [
         name: 'Adidas Essentials Tracksuit',
         price: 75.00,
         category: 'Fashion',
-        image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&q=80&w=600',
         description: 'Classic sporty style, comfortable for both workouts and relaxing.'
+    },
+    {
+        id: 18,
+        name: 'Nike Sportswear Tech Fleece',
+        price: 130.00,
+        category: 'Fashion',
+        image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&q=80&w=600',
+        description: 'Innovative fleece fabric provides lightweight warmth and comfort.'
+    },
+    {
+        id: 19,
+        name: 'H&M Linen Shirt',
+        price: 34.99,
+        category: 'Fashion',
+        image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&q=80&w=600',
+        description: 'Breathable linen blend shirt, perfect for warm weather style.'
     },
     {
         id: 48,
         name: 'Ralph Lauren Polo Shirt',
         price: 95.00,
         category: 'Fashion',
-        image: 'https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?auto=format&fit=crop&q=80&w=600',
         description: 'The iconic Polo shirt, a staple of modern style since 1972.'
     },
     {
@@ -671,12 +362,12 @@ export const products = [
         }
     },
     {
-        id: 51,
+        id: 42,
         name: 'The North Face Rain Jacket',
         price: 150.00,
         category: 'Fashion',
-        image: 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&q=80&w=600',
-        description: 'Waterproof and breathable jacket for maximum outdoor protection.',
+        image: 'https://images.unsplash.com/photo-1617952236317-0bd127407984?auto=format&fit=crop&q=80&w=600',
+        description: 'Waterproof and breathable jacket, perfect for outdoor adventures.',
         options: {
             sizes: ['S', 'M', 'L', 'XL', 'XXL'],
             colors: ['Black', 'Navy', 'Red', 'Green']
@@ -691,7 +382,7 @@ export const products = [
         name: 'Levi\'s 501 Original Jeans',
         price: 89.00,
         category: 'Fashion',
-        image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&q=80&w=600',
         description: 'The blueprint for every pair of jeans in existence.',
         options: {
             sizes: ['28', '30', '32', '34', '36', '38'],
@@ -710,32 +401,6 @@ export const products = [
         price: 150.00,
         category: 'Footwear',
         image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=600',
-        images: [
-            'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1605348532760-6753d2c43329?auto=format&fit=crop&q=80&w=600'
-        ],
-        colorImages: {
-            'White': [
-                'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Black': [
-                'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1605348532760-6753d2c43329?auto=format&fit=crop&q=80&w=600'
-            ],
-            'Blue/Orange': [
-                'https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&q=80&w=600',
-                'https://images.unsplash.com/photo-1603808033192-082d6919d3e1?auto=format&fit=crop&q=80&w=600'
-            ]
-        },
         description: 'Features a large Max Air unit for maximum cushioning. Bold and versatile.',
         options: {
             sizes: ['UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11'],
@@ -808,7 +473,7 @@ export const products = [
         name: 'Birkenstock Arizona Sandals',
         price: 110.00,
         category: 'Footwear',
-        image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1556804335-2fa563e93aae?auto=format&fit=crop&q=80&w=600',
         description: 'The legendary two-strap sandal with the anatomically shaped footbed.',
         options: {
             sizes: ['UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11'],
@@ -835,12 +500,12 @@ export const products = [
         }
     },
     {
-        id: 80,
+        id: 58,
         name: 'Asics Gel-Kayano 30',
         price: 160.00,
         category: 'Footwear',
-        image: 'https://images.unsplash.com/photo-1529810313688-44ea1c2d81d3?auto=format&fit=crop&q=80&w=600',
-        description: 'Advanced stability and comfort for long-distance running.',
+        image: 'https://images.unsplash.com/photo-1605348532760-6753d2c43329?auto=format&fit=crop&q=80&w=600',
+        description: 'Legendary stability and comfort for long-distance running.',
         options: {
             sizes: ['UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11'],
             colors: ['Black/White', 'Triple White', 'Navy/Red']
@@ -878,7 +543,7 @@ export const products = [
         name: 'Organic Honey (500g)',
         price: 12.00,
         category: 'Grocery',
-        image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&q=80&w=600',
         description: 'Pure, raw organic honey. Great as a natural sweetener.',
         options: {
             weight: ['250g', '500g', '1kg']
@@ -892,7 +557,7 @@ export const products = [
         name: 'Quinoa Organic (1kg)',
         price: 15.00,
         category: 'Grocery',
-        image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&q=80&w=600',
         description: 'High-protein grain. Perfect for salads and healthy side dishes.'
     },
     {
@@ -900,7 +565,7 @@ export const products = [
         name: 'Almond Butter (340g)',
         price: 14.00,
         category: 'Grocery',
-        image: 'https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1614735241165-6756e1df61ab?auto=format&fit=crop&q=80&w=600',
         description: 'Creamy and nutritious almond butter with no added sugar.'
     },
     {
@@ -924,6 +589,14 @@ export const products = [
 
 
     // Appliances
+    {
+        id: 22,
+        name: 'LG 260L Frost Free Refrigerator',
+        price: 450.00,
+        category: 'Appliances',
+        image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=600',
+        description: 'Smart inverter compressor for energy saving and silent operation.'
+    },
 
 
     {
@@ -931,12 +604,11 @@ export const products = [
         name: 'Midea 1.5 Ton Split AC',
         price: 399.00,
         category: 'Appliances',
-        image: 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&q=80&w=600',
         images: [
-            'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1585793923033-4988cdff5388?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1584622614875-e62069b7a831?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1578926078328-123456789012?auto=format&fit=crop&q=80&w=600'
+            'https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&q=80&w=600',
+            'https://images.unsplash.com/photo-1619478963499-6475f49fe6de?auto=format&fit=crop&q=80&w=600',
+            'https://images.unsplash.com/photo-1558618048-fd0bfb6c280c?auto=format&fit=crop&q=80&w=600'
         ],
         description: 'High energy efficiency, silent operation, and rapid cooling.'
     },
@@ -949,8 +621,7 @@ export const products = [
         images: [
             'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&q=80&w=600',
             'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1584568694244-14fbcee8ebc9?auto=format&fit=crop&q=80&w=600',
-            'https://images.unsplash.com/photo-1565958011504-819ae32e47b5?auto=format&fit=crop&q=80&w=600'
+            'https://images.unsplash.com/photo-1584568694244-14fbcee8ebc9?auto=format&fit=crop&q=80&w=600'
         ],
         description: 'Quick and even cooking with inverter technology.'
     },
@@ -967,7 +638,12 @@ export const products = [
         name: 'Breville Barista Pro',
         price: 849.00,
         category: 'Appliances',
-        image: 'https://images.unsplash.com/photo-1517639493569-5666a7b2f494?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=600',
+        images: [
+            'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=600',
+            'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=600',
+            'https://images.unsplash.com/photo-1458684430571-9d5c3df75b5b?auto=format&fit=crop&q=80&w=600'
+        ],
         description: 'Create third wave specialty coffee at home from bean to espresso.'
     },
 
@@ -976,7 +652,11 @@ export const products = [
         name: 'iRobot Roomba j7+',
         price: 799.00,
         category: 'Appliances',
-        image: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=600',
+        images: [
+            'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=600',
+            'https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?auto=format&fit=crop&q=80&w=600'
+        ],
         description: 'Intelligent robot vacuum that avoids pet waste and cords.'
     },
     {
@@ -984,7 +664,11 @@ export const products = [
         name: 'Philips Air Purifier 2000i',
         price: 299.00,
         category: 'Appliances',
-        image: 'https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af?auto=format&fit=crop&q=80&w=600',
+        images: [
+            'https://images.unsplash.com/photo-1567306301408-9b74779a11af?auto=format&fit=crop&q=80&w=600',
+            'https://images.unsplash.com/photo-1583394293214-ce4c84b1c00d?auto=format&fit=crop&q=80&w=600'
+        ],
         description: 'Removes 99.97% of allergens and pollutants from your home.'
     },
     {
@@ -1040,7 +724,7 @@ export const products = [
         name: 'LEGO Star Wars Millennium Falcon',
         price: 169.99,
         category: 'Beauty & Toys',
-        image: 'https://images.unsplash.com/photo-1585366119957-e556f403e4e7?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1586165368502-1bad197a6461?auto=format&fit=crop&q=80&w=600',
         description: 'Iconic Star Wars starship recreated with authentic details.'
     },
 
@@ -1049,7 +733,7 @@ export const products = [
         name: 'Plush Teddy Bear',
         price: 25.00,
         category: 'Beauty & Toys',
-        image: 'https://images.unsplash.com/photo-1559440666-44b204e32087?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1591824438708-ce405f36ba3d?auto=format&fit=crop&q=80&w=600',
         description: 'Soft and cuddly teddy bear, perfect for kids and adults alike.'
     },
 
@@ -1058,7 +742,7 @@ export const products = [
         name: 'LEGO Technic 4x4 Off-Roader',
         price: 249.99,
         category: 'Beauty & Toys',
-        image: 'https://images.unsplash.com/photo-1533558701576-23c65e42c2fb?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&q=80&w=600',
         description: 'Advanced LEGO Technic building set for realistic off-road play.'
     },
     {
@@ -1066,7 +750,7 @@ export const products = [
         name: 'Dyson Airwrap Styler',
         price: 599.00,
         category: 'Beauty & Toys',
-        image: 'https://images.unsplash.com/photo-1647416390977-27088b90c7f0?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=600',
         description: 'Multi-styler to curl, shape, smooth, and hide flyaways with no extreme heat.'
     },
 
@@ -1076,13 +760,15 @@ export const products = [
         name: 'Nintendo Switch OLED',
         price: 349.99,
         category: 'Beauty & Toys',
-        image: 'https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?auto=format&fit=crop&q=80&w=600',
         description: 'The newest addition to the Nintendo Switch family, with a vibrant OLED screen.'
     },
     {
         id: 88,
         name: 'Revlon One-Step Hair Dryer',
-        image: 'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?auto=format&fit=crop&q=80&w=600',
+        price: 39.99,
+        category: 'Beauty & Toys',
+        image: 'https://images.unsplash.com/photo-1620331311520-246422fd82f9?auto=format&fit=crop&q=80&w=600',
         description: 'Deliver gorgeous volume and brilliant shine in a single step.'
     },
 ];
