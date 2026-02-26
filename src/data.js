@@ -557,7 +557,7 @@ export const products = [
         name: 'Quinoa Organic (1kg)',
         price: 15.00,
         category: 'Grocery',
-        image: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?auto=format&fit=crop&q=80&w=600',
         description: 'High-protein grain. Perfect for salads and healthy side dishes.'
     },
     {
@@ -565,7 +565,7 @@ export const products = [
         name: 'Almond Butter (340g)',
         price: 14.00,
         category: 'Grocery',
-        image: 'https://images.unsplash.com/photo-1614735241165-6756e1df61ab?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1590301157890-4810ed352733?auto=format&fit=crop&q=80&w=600',
         description: 'Creamy and nutritious almond butter with no added sugar.'
     },
     {
@@ -581,7 +581,7 @@ export const products = [
         name: 'Himalayan Pink Salt (500g)',
         price: 8.50,
         category: 'Grocery',
-        image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=600',
+        image: 'https://images.unsplash.com/photo-1606791450998-d3859ac80814?auto=format&fit=crop&q=80&w=600',
         description: 'Pure and mineral-rich pink salt for healthy seasoning.'
     },
 

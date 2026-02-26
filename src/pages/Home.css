@@ -109,11 +109,31 @@
     gap: 16px;
     overflow-x: auto;
     padding-bottom: 15px;
-    scrollbar-width: thin;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.horizontal-scroll-row::-webkit-scrollbar {
+    display: none;
 }
 
 .scroll-card-wrapper {
     flex: 0 0 200px;
+}
+
+@media (max-width: 768px) {
+    .horizontal-scroll-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        overflow-x: visible;
+        padding-bottom: 0;
+    }
+
+    .scroll-card-wrapper {
+        flex: none;
+        width: 100%;
+    }
 }
 
 /* Trust Banner */
@@ -131,18 +151,38 @@
 }
 
 @media (max-width: 768px) {
+    .category-nav-container {
+        padding: 8px 0;
+    }
+
     .category-item {
-        min-width: 70px;
+        min-width: 65px;
+        gap: 4px;
     }
 
     .cat-icon-circle {
-        width: 48px;
-        height: 48px;
+        width: 44px;
+        height: 44px;
     }
 
-    /* Removed desktop hero slide height */
+    .category-item span {
+        font-size: 0.75rem;
+    }
+
+    .deal-section {
+        padding: 12px;
+    }
+
+    .section-header {
+        margin-bottom: 12px;
+    }
 
     .section-header h2 {
         font-size: 1.1rem;
+    }
+
+    .view-all-link {
+        padding: 6px 12px;
+        font-size: 0.75rem;
     }
 }

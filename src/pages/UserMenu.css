@@ -261,9 +261,45 @@
     .user-menu-sidebar {
         width: 100%;
         min-height: auto;
+        position: static;
+        border-bottom: 2px solid #eee;
     }
 
-    .portal-content-main {
-        width: 100%;
+    .sidebar-header {
+        padding: 1rem;
+    }
+
+    .portal-main-header {
+        padding: 1rem;
+    }
+
+    .portal-title {
+        font-size: 1.25rem;
+    }
+
+    .portal-view-container {
+        padding: 1rem;
+    }
+
+    .profile-view-full {
+        padding: 1.5rem 1rem;
+    }
+
+    .profile-hero {
+        margin-bottom: 1.5rem;
+    }
+
+    .profile-avatar-large {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-details-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .detail-item {
+        padding: 1rem;
     }
 }

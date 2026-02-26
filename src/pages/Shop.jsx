@@ -6,6 +6,7 @@ import { useShop } from '../context/ShopContext';
 import './Shop.css';
 
 const Shop = () => {
+    const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
     const { products, categories, searchQuery, isLoading } = useShop();
@@ -97,28 +98,39 @@ const Shop = () => {
             </div>
 
             <div className="sort-controls">
-                <label htmlFor="sort-select">Sort by:</label>
-                <select
-                    id="sort-select"
-                    value={sortBy}
-                    onChange={(e) => updateFilter('sort', e.target.value)}
-                    className="sort-dropdown"
-                >
-                    <option value="popularity-desc">Popularity: High to Low</option>
-                    <option value="popularity-asc">Popularity: Low to High</option>
-                    <option value="price-asc">Price: Low to High</option>
-                    <option value="price-desc">Price: High to Low</option>
-                    <option value="rating-desc">Rating: High to Low</option>
-                    <option value="rating-asc">Rating: Low to High</option>
-                </select>
+                <div className="filter-mobile-btn" onClick={() => setIsFilterOpen(true)}>
+                    <span>Filter</span>
+                </div>
+                <div className="sort-wrapper">
+                    <label htmlFor="sort-select">Sort by:</label>
+                    <select
+                        id="sort-select"
+                        value={sortBy}
+                        onChange={(e) => updateFilter('sort', e.target.value)}
+                        className="sort-dropdown"
+                    >
+                        <option value="popularity-desc">Popularity: High to Low</option>
+                        <option value="popularity-asc">Popularity: Low to High</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="rating-desc">Rating: High to Low</option>
+                        <option value="rating-asc">Rating: Low to High</option>
+                    </select>
+                </div>
                 <span className="product-count">{sortedProducts.length} Products</span>
             </div>
 
             <div className="shop-layout">
-                <aside className="filters">
+                {/* Mobile Filter Overlay */}
+                <div className={`filter-overlay ${isFilterOpen ? 'show' : ''}`} onClick={() => setIsFilterOpen(false)}></div>
+
+                <aside className={`filters ${isFilterOpen ? 'mobile-show' : ''}`}>
                     <div className="filter-group-header">
                         <h3>Filters</h3>
-                        <button className="clear-btn" onClick={clearFilters}>Clear All</button>
+                        <div className="filter-header-actions">
+                            <button className="clear-btn" onClick={clearFilters}>Clear All</button>
+                            <button className="close-filter-mobile" onClick={() => setIsFilterOpen(false)}>×</button>
+                        </div>
                     </div>
 
                     <div className="filter-section">
@@ -190,9 +202,16 @@ const Shop = () => {
                 </aside>
 
                 <div className="product-grid">
-                    {sortedProducts.map(product => (
-                        <ProductCard key={product.id} product={product} />
-                    ))}
+                    {sortedProducts.length > 0 ? (
+                        sortedProducts.map(product => (
+                            <ProductCard key={product.id} product={product} />
+                        ))
+                    ) : (
+                        <div className="no-products">
+                            <p>No products found matching your filters.</p>
+                            <button className="clear-btn-large" onClick={clearFilters}>Clear All Filters</button>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
